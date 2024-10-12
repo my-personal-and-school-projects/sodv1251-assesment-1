@@ -1,0 +1,31 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  height: 100%;
+}
+
+.wrapper {
+  height: 100vh;
+}
+.main-wrapper {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+/* .sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  overflow: auto;
+} */
+
+.content {
+  background-color: aqua;
+  width: 80% !important;
+}
