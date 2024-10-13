@@ -125,3 +125,26 @@ main {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
+
+/* 
+* Components
+ */
+
+/* Customers */
+.btn-delete i {
+  color: red;
+}
+
+.btn-edit i {
+  color: #2470dc;
+}
+
+.btn-view i {
+  color: green;
+}
+
+.btn-edit i:hover,
+.btn-delete i:hover,
+.btn-view i:hover {
+  color: black;
+}
