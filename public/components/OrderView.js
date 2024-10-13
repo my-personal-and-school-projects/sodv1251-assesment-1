@@ -3,14 +3,16 @@ import AbstractView from "./AbstractView.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("Inventory");
+    this.setTitle("Orders View");
   }
+
   async getHtml() {
+    console.log(this.params.id);
     return `
     <div>
-        <h2>Inventory</h2>
-        <p><strong>Welcome Manolin</strong>. This is a temporary Inventory view</p>
-    </div>
+        <h2>Order No: 00087-23</h2>
+        <p>temporary order No.X view</p>
+      </div>
     `;
   }
 }
