@@ -1,52 +1,67 @@
-<div class="sidebar border-end">
-  <div class="sidebar-header border-bottom">
-    <div class="sidebar-brand">CoreUI</div>
-  </div>
-  <ul class="sidebar-nav">
-    <li class="nav-title">Nav Title</li>
+<div
+  class="sidebar col-3 d-flex flex-column flex-shrink-0 p-3 border-end border-secondary-subtle"
+  style="width: 20%"
+>
+  <a
+    href="/"
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+  >
+    <span class="fs-4">Sidebar</span>
+  </a>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a class="nav-link active" href="#">
-        <i class="nav-icon cil-speedometer"></i> Nav item
+      <a href="/" class="nav-link active" aria-current="page" data-link>
+        <i class="bi bi-house-door"></i>
+        Home
       </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="nav-icon cil-speedometer"></i> With badge
-        <span class="badge bg-primary ms-auto">NEW</span>
+    <li>
+      <a href="/" class="nav-link link-dark" data-link>
+        <i class="bi bi-speedometer2"></i>
+        Dashboard
       </a>
     </li>
-    <li class="nav-item nav-group show">
-      <a class="nav-link nav-group-toggle" href="#">
-        <i class="nav-icon cil-puzzle"></i> Nav dropdown
+    <li>
+      <a href="/orders" class="nav-link link-dark" data-link>
+        <i class="bi bi-calendar3"></i>
+        Orders
       </a>
-      <ul class="nav-group-items">
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span class="nav-icon"><span class="nav-icon-bullet"></span></span>
-            Nav dropdown item
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span class="nav-icon"><span class="nav-icon-bullet"></span></span>
-            Nav dropdown item
-          </a>
-        </li>
-      </ul>
     </li>
-    <li class="nav-item mt-5">
-      <a class="nav-link" href="https://coreui.io">
-        <i class="nav-icon cil-cloud-download"></i> Download CoreUI</a
-      >
+    <li>
+      <a href="/inventory" class="nav-link link-dark" data-link>
+        <i class="bi bi-box-seam"></i>
+        Inventory
+      </a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="https://coreui.io/pro/">
-        <i class="nav-icon cil-layers"></i> Try CoreUI
-        <strong>PRO</strong>
+    <li>
+      <a href="/customers" class="nav-link link-dark" data-link>
+        <i class="bi bi-person-circle"></i>
+        Customers
       </a>
     </li>
   </ul>
-  <div class="sidebar-footer border-top d-flex">
-    <button class="sidebar-toggler" type="button"></button>
+  <hr />
+  <div class="dropdown">
+    <a
+      href="#"
+      class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+      id="dropdownUser2"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <img src="" alt="" width="32" height="32" class="rounded-circle me-2" />
+      <strong>mdo</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+      <li><a class="dropdown-item" href="#">New project...</a></li>
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><a class="dropdown-item" href="#">Profile</a></li>
+      <li><hr class="dropdown-divider" /></li>
+      <li><a class="dropdown-item" href="#">Sign out</a></li>
+    </ul>
   </div>
+</div>
+<div class="content col-9">
+  <h2>SPA Container</h2>
 </div>
