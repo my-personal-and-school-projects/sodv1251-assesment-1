@@ -1,7 +1,7 @@
 import Dashboard from "../components/Dashboard.js";
 import Orders from "../components/Orders.js";
 import Inventory from "../components/Inventory.js";
-import OrderView from "../components/orderView.js";
+import OrderDetail from "../components/OrderDetail.js";
 import Customers from "../components/Customers.js";
 import Home from "../components/Home.js";
 
@@ -44,7 +44,7 @@ const router = async () => {
 
     {
       path: "/orders/:id",
-      view: OrderView,
+      view: OrderDetail,
     },
 
     {
