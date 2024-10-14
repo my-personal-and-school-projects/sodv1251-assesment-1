@@ -5,17 +5,12 @@ import customerDataRow from "../templates/customer-data.js";
 //Get the customers data
 const CUSTOMERS_ENDPOINT = "/api/customers";
 
-const customersList = [];
-
-console.log(customersList.length);
-
 export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Customers");
   }
 
-  /* TODO: find a way to map the data rows */
   async getHtml() {
     this.customersList = await getData(CUSTOMERS_ENDPOINT);
 
@@ -28,8 +23,7 @@ export default class extends AbstractView {
 
     return `
     <div>
-        <h2>Customers</h2>
-        <p><strong>Welcome Manolin</strong>. This is a temporary Customers view</p>
+        <h2 class="pb-3">Customers</h2>
         <button class="btn btn-success">+ Add Customers</button>
     </div>
     <div class="table-responsive py-4">

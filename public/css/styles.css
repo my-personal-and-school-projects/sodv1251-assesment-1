@@ -29,10 +29,6 @@ main {
   color: #fff;
 }
 
-.sidebar li a:hover {
-  color: #2470dc !important;
-}
-
 /*
  * Sidebar
  */
@@ -73,18 +69,8 @@ main {
   color: #fff !important;
 }
 
-.sidebar .nav-link .feather {
-  margin-right: 4px;
-  color: #727272;
-}
-
 .sidebar .nav-link.active {
-  color: #2470dc;
-}
-
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-  color: inherit;
+  color: #fff !important;
 }
 
 .sidebar-heading {
