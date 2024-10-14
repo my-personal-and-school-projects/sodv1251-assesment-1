@@ -23,7 +23,7 @@ export default class extends AbstractView {
     return `
     <div>
         <h2 class="pb-3">Current Promotions</h2>
-        <button class="btn btn-success">+ Add Promos</button>
+        <a href="/promotions-crud" data-link class="btn btn-success">+ Add Promos</a>
     </div>
     <div class="table-responsive py-4">
     <table class="table table-striped table-sm">

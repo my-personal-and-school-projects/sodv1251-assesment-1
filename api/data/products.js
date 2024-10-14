@@ -182,6 +182,51 @@ const products = [
     103,
     false
   ),
+  new Product(
+    21,
+    "Old Model Laptop",
+    "Previous generation laptop with 8GB RAM",
+    "Electronics",
+    600.0,
+    101,
+    true
+  ),
+  new Product(
+    22,
+    "Basic Smartphone",
+    "Older model smartphone with 64GB storage",
+    "Electronics",
+    400.0,
+    102,
+    true
+  ),
+  new Product(
+    23,
+    "Classic Coffee Maker",
+    "Traditional coffee maker without grinder",
+    "Home Appliances",
+    100.0,
+    103,
+    true
+  ),
+  new Product(
+    24,
+    "Vintage Desk Chair",
+    "Classic style desk chair",
+    "Furniture",
+    150.0,
+    104,
+    true
+  ),
+  new Product(
+    25,
+    "Wired Headphones",
+    "Basic wired headphones",
+    "Electronics",
+    30.0,
+    101,
+    true
+  ),
 ];
 
 module.exports = products;

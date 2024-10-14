@@ -21,6 +21,11 @@ const productsInventory = [
   new Inventory(18, 18, 30, 20, 0),
   new Inventory(19, 19, 90, 60, 10),
   new Inventory(20, 20, 50, 30, 0),
+  new Inventory(21, 21, 2, 45, 0),
+  new Inventory(22, 22, 1, 33, 0),
+  new Inventory(23, 23, 3, 20, 0),
+  new Inventory(24, 24, 1, 10, 0),
+  new Inventory(25, 25, 0, 60, 0),
 ];
 
 module.exports = productsInventory;

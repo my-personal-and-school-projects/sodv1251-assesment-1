@@ -6,6 +6,10 @@ import Customers from "../components/Customers.js";
 import Home from "../components/Home.js";
 import Promotions from "../components/Promotions.js";
 import Reporting from "../components/Reporting.js";
+import ProductDetail from "../components/ProductDetail.js";
+import ProductsCrud from "../components/ProductsCrud.js";
+import CustomersCrud from "../components/CustomersCrud.js";
+import PromotionsCrud from "../components/PromotionsCrud.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -54,12 +58,28 @@ const router = async () => {
       view: Inventory,
     },
     {
+      path: "/product-detail",
+      view: ProductDetail,
+    },
+    {
+      path: "/products-crud",
+      view: ProductsCrud,
+    },
+    {
       path: "/customers",
       view: Customers,
     },
     {
+      path: "/customers-crud",
+      view: CustomersCrud,
+    },
+    {
       path: "/promotions",
       view: Promotions,
+    },
+    {
+      path: "/promotions-crud",
+      view: PromotionsCrud,
     },
     {
       path: "/reporting",

@@ -134,3 +134,27 @@ main {
 .btn-view i:hover {
   color: black;
 }
+
+/* Inventory */
+.table-wrapper {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.table thead {
+  position: sticky;
+  top: 0;
+}
+
+.crud-form input,
+.crud-form select {
+  width: 70%;
+}
+
+.menu-buttons {
+  width: 80%;
+}
+
+.menu-buttons .btn {
+  width: 11rem;
+}

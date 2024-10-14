@@ -36,29 +36,30 @@ export default class extends AbstractView {
     return `
     <div>
         <h2 class="pb-3">Inventory</h2>
-        <button class="btn btn-success">+ Add Products</button>
+        <a href="/products-crud" data-link class="btn btn-success btn-add">+ Add Products</a>
     </div>
     <div class="table-responsive py-4">
-    <table class="table table-striped table-sm">
-        <thead class="border-bottom border-secondary">
-        <tr>
-            <th scope="col" class="text-center">Action</th>
-            <th scope="col">ID</th>
-            <th scope="col">Product</th>
-            <th scope="col">Description</th>
-            <th scope="col">Unit Price</th>            
-            <th scope="col">Qty in Stock</th>
-            <th scope="col">Inventory Value</th>
-            <th scope="col">Reorder Lvl</th>
-            <th scope="col">Qty in reorder</th>
-            <th scope="col">Discontinued?</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        ${rows.join("")}
-        </tbody>
-    </table>
+    <div class="table-wrapper">
+      <table class="table table-striped table-sm">
+          <thead class="border-bottom border-secondary">
+          <tr>
+              <th scope="col" class="text-center">Action</th>
+              <th scope="col">ID</th>
+              <th scope="col">Product</th>
+              <th scope="col">Description</th>
+              <th scope="col">Unit Price</th>            
+              <th scope="col">Qty in Stock</th>
+              <th scope="col">Inventory Value</th>
+              <th scope="col">Reorder Lvl</th>
+              <th scope="col">Qty in reorder</th>
+              <th scope="col">Discontinued?</th>  
+          </tr>
+          </thead>
+          <tbody>
+          ${rows.join("")}
+          </tbody>
+      </table>
+    </div>
     </div>
     `;
   }
