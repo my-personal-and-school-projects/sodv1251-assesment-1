@@ -11,6 +11,16 @@ const productsInventory = [
   new Inventory(8, 8, 30, 40, 15),
   new Inventory(9, 9, 150, 100, 0),
   new Inventory(10, 10, 80, 120, 30),
+  new Inventory(11, 11, 60, 70, 10),
+  new Inventory(12, 12, 40, 90, 5),
+  new Inventory(13, 13, 25, 35, 0),
+  new Inventory(14, 14, 80, 50, 0),
+  new Inventory(15, 15, 150, 100, 0),
+  new Inventory(16, 16, 100, 40, 20),
+  new Inventory(17, 17, 200, 150, 15),
+  new Inventory(18, 18, 30, 20, 0),
+  new Inventory(19, 19, 90, 60, 10),
+  new Inventory(20, 20, 50, 30, 0),
 ];
 
 module.exports = productsInventory;

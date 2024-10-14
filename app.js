@@ -3,6 +3,7 @@ const path = require("path");
 const customerRoutes = require("./api/routes/customers");
 const productRoutes = require("./api/routes/products");
 const inventoryRoutes = require("./api/routes/inventory");
+const promotionRoutes = require("./api/routes/promotions");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use("/static", express.static(path.resolve(__dirname, "public")));
 app.use("/api/customers", customerRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/products-inventory", inventoryRoutes);
+app.use("/api/promotions", promotionRoutes);
 
 app.get("/*", (req, res) => {
   res.sendFile(path.resolve("public", "index.html"));

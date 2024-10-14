@@ -4,6 +4,8 @@ import Inventory from "../components/Inventory.js";
 import OrderDetail from "../components/OrderDetail.js";
 import Customers from "../components/Customers.js";
 import Home from "../components/Home.js";
+import Promotions from "../components/Promotions.js";
+import Reporting from "../components/Reporting.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -54,6 +56,14 @@ const router = async () => {
     {
       path: "/customers",
       view: Customers,
+    },
+    {
+      path: "/promotions",
+      view: Promotions,
+    },
+    {
+      path: "/reporting",
+      view: Reporting,
     },
   ];
 

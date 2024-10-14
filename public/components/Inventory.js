@@ -30,7 +30,6 @@ export default class extends AbstractView {
       const matchingProduct = sortedInventory.find(
         (product) => product.id === inventoryItem.productId
       );
-      console.log(inventoryItem.quantityInStock * matchingProduct.unitPrice);
       return inventoryDataRow(inventoryItem, matchingProduct);
     });
 
