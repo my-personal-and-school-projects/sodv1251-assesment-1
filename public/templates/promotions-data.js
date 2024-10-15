@@ -5,12 +5,16 @@ const promotionsDataRow = (promo) => `
         <button class="btn btn-view">
             <i class="bi bi-binoculars"></i>
         </button>
-        <button class="btn btn-edit">
+        <a href="/promotions-crud?state=edit&id=${
+          promo.id
+        }" class="btn btn-edit">
             <i class="bi bi-pencil"></i>
-        </button>
-        <button class="btn btn-delete">
+        </a>
+        <a href="/promotions-crud?state=delete&id=${
+          promo.id
+        }"class="btn btn-delete">
             <i class="bi bi-trash"></i>
-        </button>
+        </a>
         </div>
     </td>
     <td>${promo.code}</td>

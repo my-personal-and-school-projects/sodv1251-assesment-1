@@ -32,7 +32,7 @@ const navigateTo = (url) => {
   router();
 };
 
-//Create the routes for the existing pages
+//Create the routes for the existing views
 const router = async () => {
   const routes = [
     {
@@ -109,10 +109,19 @@ const router = async () => {
 
   const view = new match.route.view(getParams(match));
   document.querySelector(".app").innerHTML = await view.getHtml();
+
+  // Now that the HTML is rendered, you can bind event listeners
+  if (typeof view.manageState === "function") {
+    view.manageState();
+  }
 };
 
 window.addEventListener("popstate", router);
 
+/**
+ * Add event listeners to all navigation link to prevent
+ * default behaviour
+ */
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", (event) => {
     if (event.target.matches("[data-link]")) {

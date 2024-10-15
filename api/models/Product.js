@@ -6,7 +6,7 @@ class Product {
     category,
     unitPrice,
     vendorId,
-    IsDiscontinued
+    IsDiscontinued = false
   ) {
     this.id = id;
     this.name = name;

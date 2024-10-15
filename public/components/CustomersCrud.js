@@ -41,6 +41,20 @@ export default class extends AbstractView {
                             <label for="phone" class="col-3 form-label">Phone:</label>
                             <input type="text" class="form-control" id="phone"/>
                         </div>
+                        <div class="radios-group form-group row-cols-2 d-flex align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="is-active" value="option1" checked>
+                                <label class="form-check-label" for="is-active">
+                                    Active
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="not-active" value="option2">
+                                <label class="form-check-label" for="not-active">
+                                    Inactive
+                                </label>
+                            </div>    
+                        </div>  
                     </div>                
                     
                 </div>

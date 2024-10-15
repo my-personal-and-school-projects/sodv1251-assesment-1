@@ -1,5 +1,5 @@
 class Promotion {
-  constructor(id, code, discountPercentage, isDiscontinued) {
+  constructor(id, code, discountPercentage, isDiscontinued = false) {
     this.id = id;
     this.code = code;
     this.discountPercentage = discountPercentage;
