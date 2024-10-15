@@ -1,18 +1,15 @@
 const promotionsDataRow = (promo) => `
 <tr>
      <td class="px-0">
-        <div class="d-flex justify-content-center gap-3">
-        <button class="btn btn-view">
-            <i class="bi bi-binoculars"></i>
-        </button>
+        <div class="d-flex justify-content-center gap-3">       
         <a href="/promotions-crud?state=edit&id=${
           promo.id
-        }" class="btn btn-edit">
+        }" class="btn btn-edit" data-link >
             <i class="bi bi-pencil"></i>
         </a>
         <a href="/promotions-crud?state=delete&id=${
           promo.id
-        }"class="btn btn-delete">
+        }"class="btn btn-delete" data-link >
             <i class="bi bi-trash"></i>
         </a>
         </div>

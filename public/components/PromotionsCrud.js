@@ -94,7 +94,7 @@ export default class extends AbstractView {
         codeInput.disabled = true;
         break;
       case "delete":
-        btnDeleteContainer.classList.add("d-flex");
+        radioButtons.classList.add("d-flex");
         btnSaveContainer.setAttribute("style", "display: none;");
         btnClearContainer.setAttribute("style", "display: none;");
         inputs.forEach((input) => {

@@ -1,16 +1,16 @@
-const customerDataRow = (customer) => `
+const customersDataRow = (customer) => `
 <tr>
      <td class="px-0">
         <div class="d-flex justify-content-center gap-3">
         <button class="btn btn-view">
             <i class="bi bi-binoculars"></i>
         </button>
-        <button class="btn btn-edit">
+        <a href="/customers-crud?state=edit&id=${customer.id}" class="btn btn-edit" data-link >
             <i class="bi bi-pencil"></i>
-        </button>
-        <button class="btn btn-delete">
+        </a>
+        <a href="/customers-crud?state=delete&id=${customer.id}"class="btn btn-delete" data-link >
             <i class="bi bi-trash"></i>
-        </button>
+        </a>
         </div>
     </td>
     <td>${customer.name}</td>
@@ -19,6 +19,6 @@ const customerDataRow = (customer) => `
     <td>${customer.email}</td>
     <td>${customer.phone}</td>
     <td>${customer.status}</td>
-</tr>    
+</tr>        
 `;
-export default customerDataRow;
+export default customersDataRow;
