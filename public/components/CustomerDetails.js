@@ -2,51 +2,59 @@ import AbstractView from "./AbstractView.js";
 import { getData } from "../utils/api-utility.js";
 import ordersDataRow from "../templates/orders-data.js";
 
-const PRODUCTS_ENDPOINT = "/api/products";
+//Get the customers data
 const CUSTOMERS_ENDPOINT = "/api/customers";
 const ORDERS_ENDPOINT = "/api/orders";
-const ORDER_DETAILS_ENDPOINT = "/api/orders-details";
 
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("Orders");
+    this.setTitle("Customer Details");
+    this.customer = "";
   }
+
   async getHtml() {
-    // this.productsList = await getData(PRODUCTS_ENDPOINT);
+    const UrlParams = new URLSearchParams(window.location.search);
+    this.id = parseInt(UrlParams.get("id"));
+
     this.customersList = await getData(CUSTOMERS_ENDPOINT);
     this.ordersList = await getData(ORDERS_ENDPOINT);
-    //this.orderDetailsList = await getData(ORDER_DETAILS_ENDPOINT);
-
-    /*  if (
-      this.productsList.length === 0 ||
-      this.customersList.length === 0 ||
-      this.ordersList.length === 0 ||
-      this.orderDetailsList.length === 0
-    ) {
-      return `<div>No orders found</div>`;
-    } */
 
     if (this.customersList.length === 0 || this.ordersList.length === 0) {
       return `<div>No orders found</div>`;
     }
 
-    const rows = this.ordersList
-      .map((order) => {
-        const matchingCustomer = this.customersList.find(
-          (customer) => customer.id === order.customerId
-        );
+    this.customer =
+      this.id > 0 ? this.customersList.find((item) => item.id === this.id) : "";
 
-        return ordersDataRow(order, matchingCustomer);
+    const orders = this.ordersList.filter(
+      (order) => order.customerId === this.customer.id
+    );
+
+    const rows = orders
+      .map((order) => {
+        order.customerId === this.customer.id;
+        return ordersDataRow(order, this.customer);
       })
       .join("");
 
     return `
-    <div>
-        <h2 class="pb-3">Orders</h2>
-        <a href="/Orders-crud?state=new" data-link class="btn btn-success">+ Add Orders</a>
+    <div class="pb-3">
+        <h2 class="pb-3">Customer Details</h2>
+        <a href="/customers" data-link class="btn btn-outline-info">Back to Customers</a>
     </div>
-    <div class="table-responsive py-4">
+    <div>
+      <ul class="customer-details">
+        <li><h3>${this.customer.name}</h3></li>
+        <li>${this.customer.address}</li>
+        <li>${this.customer.city}</li>
+        <li>${this.customer.email}</li>
+        <li>${this.customer.phone}</li>
+        <li>${this.customer.status}</li>
+      </ul>
+    </div>
+
+    <div class="table-responsive py-4 border-top">
       <table class="table table-striped table-sm">
           <thead class="border-bottom border-secondary">
           <tr>
@@ -63,7 +71,7 @@ export default class extends AbstractView {
           ${rows}
           </tbody>
       </table>
-    </div>
+    </div>    
     `;
   }
 }

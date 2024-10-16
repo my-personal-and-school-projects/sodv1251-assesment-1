@@ -18,7 +18,9 @@ const productCrudForm = (product) => `
                 </div>
                 <div class="form-group row-cols-2 d-flex align-items-center">
                     <label for="category" class="col-3"> Category:</label>
-                    <select class="form-select" id="category">
+                    <select class="form-select" id="category" ${
+                      product.category || ""
+                    }">
                         <option selected value=""> Select a Category</option>                            
                     </select>
                 </div>                    
@@ -34,13 +36,13 @@ const productCrudForm = (product) => `
                 <div class="form-group row-cols-2 d-flex align-items-center">
                     <label for="vendor" class="col-3 form-label">Vendor Id:</label>
                     <input type="text" class="form-control" id="vendor" value="${
-                      product.vendor || ""
+                      product.vendorId || ""
                     }"/>
                 </div>
                 <div class="radio-buttons-group form-group row-cols-2 d-flex align-items-center py-2">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="discontinued" value="option1" ${
-                          promo.isDiscontinued === false ? "checked" : ""
+                          product.isDiscontinued === false ? "checked" : ""
                         }>
                         <label class="form-check-label" for="discontinued">
                             Discontinued
@@ -48,7 +50,7 @@ const productCrudForm = (product) => `
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="not-discontinued" value="option2" ${
-                          promo.isDiscontinued === false ? "checked" : ""
+                          product.isDiscontinued === false ? "checked" : ""
                         }>
                         <label class="form-check-label" for="not-discontinued">
                             Not Discontinued

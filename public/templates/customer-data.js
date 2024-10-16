@@ -2,9 +2,9 @@ const customersDataRow = (customer) => `
 <tr>
      <td class="px-0">
         <div class="d-flex justify-content-center gap-3">
-        <button class="btn btn-view">
+        <a href="/customer-details?id=${customer.id}" class="btn btn-view" data-link>
             <i class="bi bi-binoculars"></i>
-        </button>
+        </a>
         <a href="/customers-crud?state=edit&id=${customer.id}" class="btn btn-edit" data-link >
             <i class="bi bi-pencil"></i>
         </a>

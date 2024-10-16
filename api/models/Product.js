@@ -17,8 +17,8 @@ class Product {
     this.IsDiscontinued = IsDiscontinued;
   }
 
-  isActive() {
-    return this.isActive;
+  IsDiscontinued() {
+    return this.IsDiscontinued;
   }
 }
 

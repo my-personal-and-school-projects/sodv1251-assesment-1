@@ -2,15 +2,20 @@ const inventoryDataRow = (inventory, product) => `
 <tr>
      <td class="px-0">
         <div class="d-flex justify-content-center gap-3">
-        <button class="btn btn-view">
+        <a href="/product-detail?id=${
+          product.id
+        }" class="btn btn-view" data-link>
             <i class="bi bi-binoculars"></i>
-        </button>
-        <button class="btn btn-edit">
-            <i class="bi bi-pencil"></i>
-        </button>
-        <button class="btn btn-delete">
-            <i class="bi bi-trash"></i>
-        </button>
+        </a>
+     <a class="btn btn-edit" data-link href="/products-crud?state=edit&id=${
+       product.id
+     }"> <i data-link class="bi bi-pencil"></i>
+        </a>
+    <a href="/products-crud?state=delete&id=${
+      product.id
+    }" class="btn btn-delete" data-link >
+        <i data-link class="bi bi-trash"></i>       
+     </a> 
         </div>
     </td>
     <td>${inventory.id}</td>

@@ -13,7 +13,7 @@ router.get("/:id", (req, res) => {
   const promo = promotions.find((p) => p.id === parseInt(req.params.id));
 
   if (!promo) {
-    return res.status(404).send("Promo noit found");
+    return res.status(404).send("Promo not found");
   } else {
     res.json(promo);
   }

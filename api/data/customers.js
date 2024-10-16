@@ -26,7 +26,7 @@ const customers = [
     "Cochrane",
     "michael.johnson@example.com",
     "403-555-0303",
-    "inactive"
+    "active"
   ),
   new Customer(
     4,
@@ -44,6 +44,51 @@ const customers = [
     "Chestermere",
     "chris.wilson@example.com",
     "403-555-0505",
+    "active"
+  ),
+  new Customer(
+    6,
+    "Barack Obama",
+    "123 Lincoln Blvd",
+    "Calgary",
+    "barack.obama@example.com",
+    "312-555-0106",
+    "active"
+  ),
+  new Customer(
+    7,
+    "Hillary Clinton",
+    "234 Clinton St",
+    "Fort SK",
+    "hillary.clinton@example.com",
+    "212-555-0107",
+    "inactive"
+  ),
+  new Customer(
+    8,
+    "Nelson Mandela",
+    "345 Freedom Ave",
+    "Okotoks",
+    "nelson.mandela@example.com",
+    "011-555-0108",
+    "active"
+  ),
+  new Customer(
+    9,
+    "Angela Merkel",
+    "456 Unity Rd",
+    "Red Deer",
+    "angela.merkel@example.com",
+    "030-555-0109",
+    "inactive"
+  ),
+  new Customer(
+    10,
+    "Winston Churchill",
+    "567 Victory St",
+    "Edmonton",
+    "winston.churchill@example.com",
+    "020-555-0110",
     "active"
   ),
 ];

@@ -162,3 +162,22 @@ main {
 .form-check-input {
   width: 1rem !important;
 }
+
+.btn-edit,
+.btn-delete,
+.btn-view {
+  text-decoration: none;
+}
+
+.btn-edit i,
+.btn-delete i,
+.btn-view i {
+  pointer-events: none;
+}
+
+.customer-details {
+  list-style: none;
+}
+
+.customer-details li {
+}

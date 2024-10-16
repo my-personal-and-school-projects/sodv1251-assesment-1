@@ -4,7 +4,8 @@ const customerRoutes = require("./api/routes/customers");
 const productRoutes = require("./api/routes/products");
 const inventoryRoutes = require("./api/routes/inventory");
 const promotionRoutes = require("./api/routes/promotions");
-
+const orderRoutes = require("./api/routes/orders");
+const orderDetailsRoutes = require("./api/routes/orderDetails");
 const app = express();
 
 //Serve static files
@@ -15,6 +16,8 @@ app.use("/api/customers", customerRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/products-inventory", inventoryRoutes);
 app.use("/api/promotions", promotionRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/orders-details", orderDetailsRoutes);
 
 app.get("/*", (req, res) => {
   res.sendFile(path.resolve("public", "index.html"));

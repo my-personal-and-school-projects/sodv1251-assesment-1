@@ -10,6 +10,7 @@ import ProductDetail from "../components/ProductDetail.js";
 import ProductsCrud from "../components/ProductsCrud.js";
 import CustomersCrud from "../components/CustomersCrud.js";
 import PromotionsCrud from "../components/PromotionsCrud.js";
+import CustomerDetails from "../components/CustomerDetails.js";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -49,7 +50,7 @@ const router = async () => {
     },
 
     {
-      path: "/orders/:id",
+      path: "/orders-details",
       view: OrderDetail,
     },
 
@@ -68,6 +69,10 @@ const router = async () => {
     {
       path: "/customers",
       view: Customers,
+    },
+    {
+      path: "/customer-details",
+      view: CustomerDetails,
     },
     {
       path: "/customers-crud",
@@ -124,7 +129,7 @@ window.addEventListener("popstate", router);
  */
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", (event) => {
-    if (event.target.matches("[data-link]")) {
+    if (event.target.matches("a[data-link]")) {
       event.preventDefault();
       navigateTo(event.target.href);
     }
