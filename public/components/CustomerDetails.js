@@ -44,7 +44,7 @@ export default class extends AbstractView {
         <a href="/customers" data-link class="btn btn-outline-info">Back to Customers</a>
     </div>
     <div>
-      <ul class="customer-details">
+      <ul class="item-details">
         <li><h3>${this.customer.name}</h3></li>
         <li>${this.customer.address}</li>
         <li>${this.customer.city}</li>

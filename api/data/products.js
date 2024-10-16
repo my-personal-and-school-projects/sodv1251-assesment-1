@@ -7,7 +7,9 @@ const products = [
     "Electronics",
     1200.0,
     101,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     2,
@@ -16,7 +18,9 @@ const products = [
     "Electronics",
     800.0,
     102,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     3,
@@ -25,7 +29,9 @@ const products = [
     "Home Appliances",
     150.0,
     103,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     4,
@@ -34,7 +40,9 @@ const products = [
     "Furniture",
     200.0,
     104,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     5,
@@ -43,7 +51,9 @@ const products = [
     "Electronics",
     300.0,
     101,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     6,
@@ -52,7 +62,9 @@ const products = [
     "Home Appliances",
     120.0,
     103,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     7,
@@ -61,7 +73,9 @@ const products = [
     "Electronics",
     25.0,
     102,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     8,
@@ -70,7 +84,9 @@ const products = [
     "Furniture",
     400.0,
     104,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     9,
@@ -79,7 +95,9 @@ const products = [
     "Electronics",
     100.0,
     101,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     10,
@@ -88,7 +106,9 @@ const products = [
     "Home Appliances",
     80.0,
     103,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
 
   // New products starting from ID 11
@@ -99,7 +119,9 @@ const products = [
     "Electronics",
     250.0,
     102,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     12,
@@ -108,7 +130,9 @@ const products = [
     "Electronics",
     500.0,
     101,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     13,
@@ -117,7 +141,9 @@ const products = [
     "Home Appliances",
     90.0,
     103,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     14,
@@ -126,7 +152,9 @@ const products = [
     "Furniture",
     150.0,
     104,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     15,
@@ -135,7 +163,9 @@ const products = [
     "Electronics",
     70.0,
     101,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     16,
@@ -144,7 +174,9 @@ const products = [
     "Home Appliances",
     30.0,
     103,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     17,
@@ -153,7 +185,9 @@ const products = [
     "Electronics",
     120.0,
     102,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     18,
@@ -162,7 +196,9 @@ const products = [
     "Furniture",
     300.0,
     104,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     19,
@@ -171,7 +207,9 @@ const products = [
     "Electronics",
     350.0,
     101,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     20,
@@ -180,7 +218,9 @@ const products = [
     "Home Appliances",
     200.0,
     103,
-    false
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     21,
@@ -189,7 +229,9 @@ const products = [
     "Electronics",
     600.0,
     101,
-    true
+    true,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     22,
@@ -198,7 +240,9 @@ const products = [
     "Electronics",
     400.0,
     102,
-    true
+    true,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     23,
@@ -207,7 +251,9 @@ const products = [
     "Home Appliances",
     100.0,
     103,
-    true
+    true,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     24,
@@ -216,7 +262,9 @@ const products = [
     "Furniture",
     150.0,
     104,
-    true
+    true,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
   new Product(
     25,
@@ -225,7 +273,9 @@ const products = [
     "Electronics",
     30.0,
     101,
-    true
+    true,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
   ),
 ];
 

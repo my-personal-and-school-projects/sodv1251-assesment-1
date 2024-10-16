@@ -6,7 +6,9 @@ class Product {
     category,
     unitPrice,
     vendorId,
-    IsDiscontinued = false
+    IsDiscontinued = false,
+    qty = 1,
+    img_url = "https://picsum.photos/200/300"
   ) {
     this.id = id;
     this.name = name;
@@ -15,6 +17,8 @@ class Product {
     this.unitPrice = unitPrice;
     this.vendorId = vendorId;
     this.IsDiscontinued = IsDiscontinued;
+    this.qty = qty;
+    this.img_url = img_url;
   }
 
   IsDiscontinued() {
