@@ -31,8 +31,8 @@ export default class extends AbstractView {
     <div class="row">
       <div class="col-6">
         <ul class="item-details">
-          <li><strong>Brand: </strong><span>${this.product.name}</span></li>
-          <li><strong>Description:</strong> <span>${
+          <li><strong>Brand:\t</strong><span>${this.product.name}</span></li>
+          <li><strong>Description:</strong><span>${
             this.product.description
           }</span></li>
           <li><strong>Category: </strong><span>${
@@ -41,7 +41,7 @@ export default class extends AbstractView {
           <li><strong>Price per unit:</strong> $<span>${
             this.product.unitPrice
           }</span></li>
-          <li><strong>Vendor:</strong> $<<strong></strong>span>${
+          <li><strong>Vendor:</strong> $<strong></strong><span>${
             this.product.vendorId
           }</span></li>
           <li><strong>Qty in stock: </strong><span>Un madral</span></li>

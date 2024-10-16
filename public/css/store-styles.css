@@ -1,0 +1,488 @@
+/* ------------------ */
+/* Global Styles */
+/* ------------------ */
+
+:root {
+  --white: #fff;
+  --black: #181818;
+  --mid-green: #12bc12;
+  --dark-green: #28b31e;
+  --light-green: #85ffbd;
+  --light-gray: #e9e9e9;
+  --mid-gray: #ddd;
+  --dark-gray: #595a5c;
+  --light-yellow: #fffb7d;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background-color: #85ffbd;
+  background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+}
+
+footer {
+  background-image: linear-gradient(to bottom, #00c6fb 0%, #005bea 100%);
+}
+
+h1 span {
+  color: var(--white);
+
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.nav-bar-container {
+  display: flex;
+  height: 75px;
+}
+.navbar {
+  position: fixed !important;
+  top: 0;
+  opacity: 0.9;
+  z-index: 999;
+  background-image: linear-gradient(to bottom , #00c6fb 0%, #005bea 100%);r-gradient(to bottom, #30cfd0 0%, #330867 100%);
+}
+
+.navbar .nav-link {
+  color: var(--white) !important;
+  font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  color: var(--white) !important;
+}
+
+.navbar-brand,
+.text-primary {
+  color: var(--white) !important;
+
+  font-size: 35px !important;
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 800 !important;
+  font-style: normal;
+  text-decoration: underline;
+  font-weight: bolder !important;
+}
+
+.logo-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.logo {
+  width: 47px;
+  height: 50px;
+}
+
+.btn-order {
+  text-decoration: none;
+}
+
+.btn-order:hover {
+  background-color: transparent;
+  border: 1px solid var(--black);
+  color: var(--black);
+}
+
+.shopping-cart a,
+.user-button button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.shopping-cart a:hover,
+.user-button button:hover {
+  border: none;
+  color: var(--black);
+}
+
+.shopping-cart span {
+  background-color: red;
+  color: var(--white);
+  padding: 2px 6.5px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.hero-img-container {
+  max-width: 70%;
+  height: auto;
+  margin: auto;
+  padding: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0%);
+  transition-delay: 1s, 1s, 0.3s;
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: unset;
+  background: linear-gradient(360deg, #85ffbd 0%, #fffb7d 100%);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.dropdown-item {
+  border-bottom: 1px solid #85ffbd;
+}
+
+.all-items {
+  border-top: 1px solid var(--black);
+}
+
+.card {
+  padding: 0.5rem;
+  flex: 1 1 calc(33.33%);
+  background-color: var(--white);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.card-image-container {
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  padding-bottom: 0.5rem;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.card-description {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
+
+.suggestions-card .card-description a:hover {
+  text-decoration: underline !important;
+  color: var(--black) !important;
+}
+
+.scroll-wrapper {
+  overflow-x: scroll;
+}
+
+.adds-section {
+  background: linear-gradient(-90deg, #85ffbd 0%, #fffb7d 100%);
+}
+
+.adds-img-container {
+  margin: auto;
+}
+
+.adds-content-container {
+  display: block;
+  align-content: center;
+}
+
+.adds-content-container p {
+  font-size: 21px;
+}
+.adds-content-container h2 {
+  color: var(--dark-green);
+  padding-bottom: 2rem;
+}
+
+.disclaimer {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 10px;
+}
+
+.social-media-col svg {
+  stroke: var(--black);
+  width: 25px;
+  margin-right: 0.5rem;
+}
+
+.social-media-col a {
+  align-items: center;
+  gap: 1rem;
+  width: 70%;
+}
+
+footer ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+footer li {
+  padding-bottom: 0.5rem;
+}
+
+footer li a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: bold;
+}
+
+footer li a svg {
+}
+
+footer h3 {
+  color: var(--white);
+  font-weight: bold;
+  font-size: 21px;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+/* ------------------ */
+/* Menu Page */
+/* ------------------ */
+
+.row {
+  padding: 2rem 0.5rem;
+}
+
+/* ------------------ */
+/* Order Page */
+/* ------------------ */
+
+.order-details-row {
+  padding-bottom: 4rem;
+}
+
+.order-card-image-container {
+  height: 60%;
+}
+
+.order-card-image-container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.order-card-description {
+  background: linear-gradient(360deg, #85ffbd 0%, #fffb7d 100%);
+  height: 40%;
+}
+
+.order-card-description p {
+  padding-bottom: 1rem;
+}
+
+.order-card-description h2 {
+  font-size: 40px;
+}
+
+.list-group-item a {
+  color: var(--black);
+}
+
+#allergies {
+  border-color: var(--mid-green);
+}
+
+.allergies-container span {
+  font-size: 11px;
+}
+
+.warnings-section p {
+  font-size: 13px;
+}
+
+.btn-remove-item {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* ------------------ */
+/*    Cart Page       */
+/* ------------------ */
+.order-summary {
+  background: linear-gradient(90deg, #85ffbd 0%, #fffb7d 100%);
+}
+
+.cart-scroll-wrapper {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 350px;
+}
+
+/* .cart-item-card-container {
+    padding-right: 1rem;
+  } */
+
+/* ------------------ */
+/* Responsive Design */
+/* ------------------ */
+@media screen and (max-width: 576px) {
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .hero span {
+    font-size: 40px !important;
+  }
+
+  .btn-order {
+    font-size: 1rem !important;
+    padding: 1rem 2rem !important;
+    margin-left: 30% !important;
+  }
+
+  .hero-img-container {
+    padding-top: 1.5rem !important;
+    max-width: 50%;
+    height: auto;
+    margin: auto;
+    padding: 0;
+  }
+  .card-image-container img {
+    object-fit: cover !important;
+  }
+
+  .card-description {
+    font-size: 14px;
+    text-align: center !important;
+  }
+
+  .description-container {
+    flex-direction: column !important;
+  }
+
+  .adds-section h2 {
+    font-size: 22px !important;
+  }
+
+  .adds-section p {
+    font-size: 14px;
+  }
+
+  .social-media-col {
+    width: 100%;
+  }
+
+  /* ------------------ */
+  /* Order Page */
+  /* ------------------ */
+
+  .order-card-description h2 {
+    font-size: 25px !important;
+  }
+
+  .order-card-description p,
+  .list-group-item a {
+    font-size: 12px;
+  }
+
+  .warnings-section p {
+    font-size: 12px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-img-container {
+    padding-top: 1.5rem !important;
+    max-width: 55%;
+  }
+
+  .btn-order {
+    margin-left: 35% !important;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero h1 span {
+    font-size: 40px !important;
+  }
+
+  .hero p {
+    font-size: 1.25rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .card-image-container img {
+    object-fit: cover !important;
+  }
+
+  .card-description {
+    font-size: 14px;
+    text-align: center !important;
+  }
+
+  .description-container {
+    flex-direction: column !important;
+  }
+
+  .social-media-col {
+    width: 100% !important;
+  }
+
+  /* ------------------ */
+  /* Order Page */
+  /* ------------------ */
+  .order-details-row {
+    height: auto;
+  }
+
+  .food-order-card {
+    display: flex !important;
+    flex-direction: row-reverse;
+    height: 100% !important;
+  }
+
+  .order-card-image-container {
+    height: auto;
+    width: 50%;
+  }
+
+  .order-card-description {
+    height: auto;
+    width: 50%;
+  }
+
+  .order-card-description h2 {
+    font-size: 30px;
+  }
+}

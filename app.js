@@ -11,6 +11,11 @@ const app = express();
 //Serve static files
 app.use("/static", express.static(path.resolve(__dirname, "public")));
 
+// Route for the store front simulation
+app.get("/e-commerce", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "e-commerce.html"));
+});
+
 //serve data
 app.use("/api/customers", customerRoutes);
 app.use("/api/products", productRoutes);
