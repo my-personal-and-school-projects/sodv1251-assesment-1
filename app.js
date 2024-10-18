@@ -16,6 +16,23 @@ app.get("/e-commerce", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public", "e-commerce.html"));
 });
 
+// Route for the order page
+app.get("/store-order", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "pages", "store-order.html"));
+});
+
+// Route for the order page
+app.get("/store-cart", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "pages", "store-cart.html"));
+});
+
+// Route for the order page
+app.get("/store-order-confirmation", (req, res) => {
+  res.sendFile(
+    path.resolve(__dirname, "public", "pages", "store-order-confirmation.html")
+  );
+});
+
 //serve data
 app.use("/api/customers", customerRoutes);
 app.use("/api/products", productRoutes);

@@ -277,6 +277,39 @@ const products = [
     1, // quantity
     "https://picsum.photos/200/300" // image URL
   ),
+  new Product(
+    26,
+    "Dining Table",
+    "Wooden dining table with seating for six",
+    "Furniture",
+    450.0,
+    104,
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
+  ),
+  new Product(
+    27,
+    "TV Stand",
+    "Modern TV stand with storage compartments",
+    "Furniture",
+    250.0,
+    104,
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
+  ),
+  new Product(
+    28,
+    "Nightstand",
+    "Bedside nightstand with drawers",
+    "Furniture",
+    100.0,
+    104,
+    false,
+    1, // quantity
+    "https://picsum.photos/200/300" // image URL
+  ),
 ];
 
 module.exports = products;

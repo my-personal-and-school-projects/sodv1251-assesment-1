@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Store Front</title>
+    <title>Order Confirmation</title>
+
     <!-- Scripts -->
     <script type="module" src="/static/js/index.js" defer></script>
     <script type="module" src="/static/js/store.js" defer></script>
@@ -67,7 +68,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <div class="nav-bar-container">
+        <div class="nav-bar-container sticky-top">
           <nav class="navbar navbar-expand-md w-100" id="nav-bar">
             <div class="container container-fluid">
               <div class="logo-container">
@@ -108,7 +109,7 @@
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      Shop
+                      Menu
                     </a>
 
                     <ul class="dropdown-menu">
@@ -116,14 +117,14 @@
                         <a
                           class="dropdown-item food-dropdown-item"
                           href="/menu-food"
-                          >Electronics</a
+                          >Food</a
                         >
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">Home Appliances</a>
+                        <a class="dropdown-item" href="#">Drinks</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">Furniture</a>
+                        <a class="dropdown-item" href="#">Desserts</a>
                       </li>
                       <li>
                         <a class="dropdown-item all-items" href="/menu"
@@ -151,122 +152,67 @@
             </div>
           </nav>
         </div>
-        <!-- Hero section -->
-        <section class="hero pb-4">
-          <div class="container">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-12 col-lg-6">
-                <h1>Welcome to <span>My e-Shop:</span></h1>
-                <p class="fs-5 mt-4 mb-5">
-                  Elevate your home with My e-Shop! Discover the latest in
-                  electronics and home appliances, from sleek smartphones to
-                  innovative kitchen gadgets. <br /><strong>Register</strong>
-                  for news and promotions!
-                </p>
-                <a
-                  href="#registration"
-                  class="btn btn-success btn-order fs-4 px-5 py-3"
-                >
-                  Register Now
-                </a>
-              </div>
-              <div class="col-12 col-lg-6">
-                <div class="hero-img-container">
-                  <img
-                    src="static/assets/banner-image-1.png"
-                    alt="electronics"
-                    class="img-fluid"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </header>
-
       <main>
-        <!-- Suggestions Section -->
-        <section class="container py-5">
-          <h2 class="text-center">Electronics</h2>
-          <div class="scroll-wrapper">
-            <div class="row-products-electronics row d-flex flex-nowrap"></div>
-          </div>
-        </section>
-        <section class="container py-5">
-          <h2 class="text-center">Home Appliances</h2>
-          <div class="scroll-wrapper">
-            <div class="row-products-appliances row d-flex flex-nowrap"></div>
-          </div>
-        </section>
-        <section class="container py-5">
-          <h2 class="text-center">Furniture</h2>
-          <div class="scroll-wrapper">
-            <div class="row-products-furniture row d-flex flex-nowrap"></div>
-          </div>
-        </section>
-        <section class="container py-5" id="registration">
-          <div class="registration-form container border">
-            <h2 class="text-center">Customer Registration Form</h2>
-            <div class="row row-cols-2">
-              <div
-                class="card-general-info col-6 d-flex flex-column gap-4 py-5"
-              >
-                <div class="form-group row-cols-2 d-flex align-items-center">
-                  <label for="title" class="col-2">Title:</label>
-                  <select class="form-select" id="title">
-                    <option selected value="">Select a Title</option>
-                    <option value="1">Mr</option>
-                    <option value="2">Sr</option>
-                    <option value="3">Ms</option>
-                  </select>
-                </div>
-                <div class="form-group row-cols-2 d-flex align-items-center">
-                  <label for="name" class="col-2 form-label">Name:</label>
-                  <input class="form-control" id="name" value="" />
-                </div>
-                <div class="form-group row-cols-2 d-flex align-items-center">
-                  <label for="address" class="col-2 form-label">Address:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="address"
-                    value=""
-                  />
-                </div>
+        <div class="main-wrapper">
+          <section>
+            <h2
+              class="pt-5 container m-auto text-center border-bottom border-success-subtle"
+            >
+              Order Confirmation
+            </h2>
+
+            <div class="row container m-auto">
+              <div class="confirmation-header">
+                <h2 class="py-3">Thank you for your order!!</h2>
+                <p class="pb-2">
+                  An email confirmation has been sent to
+                  <strong>john.doe@orders.ca</strong>
+                </p>
               </div>
-              <div
-                class="card-contact-info col-6 d-flex flex-column gap-4 py-5"
-              >
-                <div class="form-group row-cols-2 d-flex align-items-center">
-                  <label for="city" class="col-2">City:</label>
-                  <select class="form-select" id="city">
-                    <option selected value="">Select a city</option>
-                    <option value="1">Calgary</option>
-                    <option value="2">Red Deer</option>
-                    <option value="3">Okotoks</option>
-                    <option value="4">Edmonton</option>
-                    <option value="5">Airdrie</option>
-                    <option value="6">Cochrane</option>
-                    <option value="7">Lacombe</option>
-                  </select>
+              <div class="confirmation-content border py-4 px-3">
+                <div class="border-bottom border-secondary-subtle">
+                  <ul class="">
+                    <li class="list-group-item d-flex gap-5">
+                      <span>Order Number:</span>
+                      <span><strong>000454RT-0098</strong></span>
+                    </li>
+                    <li class="list-group-item d-flex gap-5 py-4">
+                      <span>Order Total:</span> <span><strong>$</strong></span>
+                    </li>
+                    <li class="list-group-item d-flex gap-5">
+                      <span>Delivered by:</span>
+                      <span><strong>Date</strong></span>
+                    </li>
+                    <li class="list-group-item pt-4 d-flex gap-5">
+                      <span>Deliver to:</span
+                      ><spans
+                        ><strong
+                          >John Doe <br />
+                          321-10235 123 ST NW <br />Edmonton, AB T5N1N3</strong
+                        ></spans
+                      >
+                    </li>
+                  </ul>
                 </div>
-                <div class="form-group row-cols-2 d-flex align-items-center">
-                  <label for="email" class="col-2 form-label">Email:</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    value=""
-                  />
-                </div>
-                <div class="form-group row-cols-2 d-flex align-items-center">
-                  <label for="phone" class="col-2 form-label">Phone:</label>
-                  <input type="text" class="form-control" id="phone" value="" />
+                <div class="p-4">
+                  <p class="d-flex gap-5">
+                    <span>Payment Method: </span
+                    ><span><strong>Visa</strong></span>
+                  </p>
+                  <p class="pt-4 d-flex gap-5">
+                    <span>Billing Address:</span>
+                    <span
+                      ><strong
+                        >321-10235 123 ST NW <br />Edmonton, AB T5N1N3</strong
+                      ></span
+                    >
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
       <footer>
         <div class="footer-container">

@@ -113,7 +113,11 @@ const router = async () => {
   }
 
   const view = new match.route.view(getParams(match));
-  document.querySelector(".app").innerHTML = await view.getHtml();
+  let appContainer = document.querySelector(".app");
+
+  if (appContainer) {
+    appContainer.innerHTML = await view.getHtml();
+  }
 
   // Now that the HTML is rendered, you can bind event listeners
   if (typeof view.manageState === "function") {
