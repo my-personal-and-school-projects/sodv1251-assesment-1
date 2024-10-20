@@ -134,7 +134,9 @@
                   </li>
                 </ul>
               </div>
-              <div class="icon-buttons-container d-flex gap-3">
+              <div
+                class="icon-buttons-container d-flex gap-3 align-items-center"
+              >
                 <div class="shopping-cart">
                   <span class="cart-items">0</span>
                   <a href="/store-cart"
@@ -144,8 +146,10 @@
                     ></i
                   ></a>
                 </div>
-                <div class="user-button">
+                <div class="user-button d-flex gap-3 align-items-center">
                   <button><i class="fa fa-user" aria-hidden="true"></i></button>
+                  <span class="user-name-label fw-bold"></span>
+                  <button class="d-none btn btn-logout">Log out</button>
                 </div>
               </div>
             </div>
@@ -218,6 +222,15 @@
                 <a href="#registration" id="goto-register" hidden>Register</a>
               </p>
             </div>
+            <div>
+              <div
+                id="existent-customer"
+                class="invalid-feedback fs-3 gap-3 text-center text-white align-items-center justify-content-center"
+              >
+                <i class="bi bi-exclamation-triangle"></i>
+                <h5 id="message">Customer already exists!</h5>
+              </div>
+            </div>
             <form id="customer-registration-form">
               <div class="row row-cols-2">
                 <div
@@ -271,6 +284,7 @@
                         <option value="Airdrie">Airdrie</option>
                         <option value="Cochrane">Cochrane</option>
                         <option value="Lacombe">Lacombe</option>
+                        <option value="Fort SK">Fort SK</option>
                       </select>
                       <div id="invalid-city" class="invalid-feedback">
                         <i class="bi bi-exclamation-triangle"></i>
@@ -367,7 +381,7 @@
                 </button>
               </div>
             </form>
-            <form id="customer-signin-form" hidden>
+            <form class="pt-4" id="customer-signin-form" hidden>
               <div
                 class="signin-form-content flex-column w-50 p-5 container border"
               >

@@ -15,6 +15,7 @@ const suggestionsContainer = document.querySelector(".row-product-suggestions");
 const toggleFormSignIn = document.querySelector("#goto-signin");
 const toggleFormRegister = document.querySelector("#goto-register");
 const registrationForm = document.querySelector("#customer-registration-form");
+const signinForm = document.querySelector("#customer-signin-form");
 const registrationFormInputs = document.querySelectorAll(
   "#customer-registration-form input"
 );
@@ -24,8 +25,36 @@ const loginFormInputs = document.querySelectorAll(
 
 const invalidFeedbackMessages = document.querySelectorAll(".invalid-feedback");
 
-toggleFormSignIn.addEventListener("click", toggleSignInForm);
-toggleFormRegister.addEventListener("click", toggleRegisterForm);
+const btnLogout = document.querySelector(".btn-logout");
+
+(function onInit() {
+  const loggedCustomer =
+    JSON.parse(localStorage.getItem("logedCustomer")) || "";
+
+  if (loggedCustomer) {
+    document.querySelector(".user-name-label").textContent =
+      loggedCustomer.name;
+
+    if (btnLogout) {
+      btnLogout.classList.remove("d-none");
+    }
+  }
+
+  if (toggleFormSignIn) {
+    toggleFormSignIn.addEventListener("click", toggleSignInForm);
+  }
+
+  if (toggleFormRegister) {
+    toggleFormRegister.addEventListener("click", toggleRegisterForm);
+  }
+
+  if (registrationForm) {
+    registrationForm.addEventListener("submit", handleRegistrationForm);
+  }
+  if (signinForm) {
+    signinForm.addEventListener("submit", handleSigninForm);
+  }
+})();
 
 //Get products data
 let productsList = await getData(PRODUCTS_ENDPOINT);
@@ -92,7 +121,15 @@ function findAndSortInventoryByCategory(category) {
 /**
  * Register new customers
  */
-function registerNewCustomers(name, address, city, email, phone) {
+function registerNewCustomers(
+  name,
+  address,
+  city,
+  email,
+  phone,
+  username,
+  password
+) {
   //get customer rom the local storage
   let customers = JSON.parse(localStorage.getItem("customers")) || [];
 
@@ -104,11 +141,15 @@ function registerNewCustomers(name, address, city, email, phone) {
     email: email,
     phone: phone,
     status: "Active",
+    username: username,
+    password: password,
   };
+
+  console.log(customersList);
 
   //check if the customer already exists
   let existingCustomer = customersList.find(
-    (customer) => customer.name === newCustomer.name
+    (customer) => customer.username === newCustomer.username
   );
 
   if (!existingCustomer) {
@@ -116,44 +157,59 @@ function registerNewCustomers(name, address, city, email, phone) {
     //add the new customer to the localstorage
     localStorage.setItem("customers", JSON.stringify(customers));
     console.log("new customer: ", newCustomer);
+    return true;
+  } else {
+    return false;
   }
 }
 
-//get Registration form data
-document
-  .querySelector("#customer-registration-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+/**
+ * handle registration form submission
+ * @param {*} event
+ */
+function handleRegistrationForm(event) {
+  event.preventDefault();
 
-    const formData = new FormData(event.target);
+  const formData = new FormData(event.target);
 
-    const customerData = Object.fromEntries(formData.entries());
-    console.log("data", customerData);
+  const customerData = Object.fromEntries(formData.entries());
+  console.log("data", customerData);
 
-    const isValidForm = validateRegistrationForm(customerData);
-    const isValidPhone = validatePhone(customerData.phone);
-    console.log(isValidPhone);
+  const isValidForm = validateRegistrationForm(customerData);
+  const isValidPhone = validatePhone(customerData.phone);
+  console.log(isValidPhone);
 
-    if (isValidForm) {
-      console.log(isValidForm);
-      if (!isValidPhone) {
-        document.querySelector("#invalid-phone").classList.add("d-block");
-      } else {
-        document.querySelector("#invalid-phone").classList.remove("d-block");
+  if (isValidForm) {
+    console.log(isValidForm);
+    if (!isValidPhone) {
+      document.querySelector("#invalid-phone").classList.add("d-block");
+    } else if (isValidPhone) {
+      document.querySelector("#invalid-phone").classList.remove("d-block");
 
-        registerNewCustomers(
-          customerData.name,
-          customerData.address,
-          customerData.city,
-          customerData.email,
-          customerData.phone
-        );
+      const isSuccess = registerNewCustomers(
+        customerData.name,
+        customerData.address,
+        customerData.city,
+        customerData.email,
+        customerData.phone,
+        customerData.username,
+        customerData.password
+      );
 
-        //reset form fields
+      if (isSuccess) {
+        /* console.log("customer added");
+          document
+            .querySelector("#existent-customer")
+            .classList.remove("d-flex"); */
+
         resetForms();
+      } else {
+        //document.querySelector("#existent-customer").classList.add("d-flex");
+        alert("Customer already exists!!!");
       }
     }
-  });
+  }
+}
 
 /**
  * remove error message from the fields on input
@@ -170,25 +226,62 @@ registrationFormInputs.forEach((input) => {
   });
 });
 
-//get Log-in form data
-document
-  .querySelector("#customer-signin-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+/**
+ * handle login form submission
+ * @param {*} event
+ */
+function handleSigninForm(event) {
+  event.preventDefault();
 
-    const formData = new FormData(event.target);
+  const formData = new FormData(event.target);
 
-    const loginData = Object.fromEntries(formData.entries());
-    console.log("data", loginData);
+  const loginData = Object.fromEntries(formData.entries());
+  console.log("data", loginData);
 
-    const isValidForm = validateLoginForm(loginData);
+  const isValidForm = validateLoginForm(loginData);
 
-    if (isValidForm) {
-      //loginCustomer();
+  if (isValidForm) {
+    customerLogin(loginData);
+  }
+}
 
-      console.log("Welcome Manolin");
+/**
+ * verify customer and login
+ * @param {*} data
+ */
+function customerLogin(data) {
+  const existingCustomer = customersList.find(
+    (customer) =>
+      customer.username === data.username && customer.password === data.password
+  );
+
+  if (!existingCustomer) {
+    alert(
+      "The username and password you've entered doesn't match any account. Please Try again"
+    );
+  } else {
+    let logedCustomer = JSON.parse(localStorage.getItem("logedCustomer")) || "";
+
+    let verifiedCustomer = logedCustomer.username === existingCustomer.username;
+
+    if (verifiedCustomer) {
+      document.querySelector(".user-name-label").textContent =
+        verifiedCustomer.name;
+
+      if (btnLogout) {
+        btnLogout.classList.remove("d-none");
+      }
+    } else {
+      localStorage.setItem("logedCustomer", JSON.stringify(existingCustomer));
+      document.querySelector(".user-name-label").textContent =
+        existingCustomer.name;
+
+      if (btnLogout) {
+        btnLogout.classList.remove("d-none");
+      }
     }
-  });
+  }
+}
 
 loginFormInputs.forEach((input) => {
   input.addEventListener("input", (event) => {
