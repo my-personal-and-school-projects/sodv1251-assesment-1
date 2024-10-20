@@ -130,11 +130,27 @@ function registerNewCustomers(
   username,
   password
 ) {
-  //get customer rom the local storage
+  //Get customers form localStorage
   let customers = JSON.parse(localStorage.getItem("customers")) || [];
 
+  // Check if the customer already exists in the local storage
+  let existingLocalCustomer = customers.find(
+    (customer) => customer.username === username || customer.email === email
+  );
+
+  // Check if the customer already exists in the API data (customersList)
+  let existingAPICustomer = customersList.find(
+    (customer) => customer.username === username || customer.email === email
+  );
+
+  //if existent customer
+  if (existingLocalCustomer || existingAPICustomer) {
+    return false;
+  }
+
+  // If customer does not exist
   let newCustomer = {
-    id: customersList.length + 1,
+    id: customers.length + customersList.length + 1, // Unique ID combining both sources
     name: name,
     address: address,
     city: city,
@@ -145,22 +161,13 @@ function registerNewCustomers(
     password: password,
   };
 
-  console.log(customersList);
+  customers.push(newCustomer);
 
-  //check if the customer already exists
-  let existingCustomer = customersList.find(
-    (customer) => customer.username === newCustomer.username
-  );
+  // Save updated customers array to local storage
+  localStorage.setItem("customers", JSON.stringify(customers));
 
-  if (!existingCustomer) {
-    customers.push(newCustomer);
-    //add the new customer to the localstorage
-    localStorage.setItem("customers", JSON.stringify(customers));
-    console.log("new customer: ", newCustomer);
-    return true;
-  } else {
-    return false;
-  }
+  console.log("New customer registered: ", newCustomer);
+  return true;
 }
 
 /**
@@ -197,14 +204,11 @@ function handleRegistrationForm(event) {
       );
 
       if (isSuccess) {
-        /* console.log("customer added");
-          document
-            .querySelector("#existent-customer")
-            .classList.remove("d-flex"); */
-
+        alert(
+          "Registration succesful. Sign in for a better shopping experience"
+        );
         resetForms();
       } else {
-        //document.querySelector("#existent-customer").classList.add("d-flex");
         alert("Customer already exists!!!");
       }
     }
@@ -250,19 +254,25 @@ function handleSigninForm(event) {
  * @param {*} data
  */
 function customerLogin(data) {
+  let loggedCustomer = JSON.parse(localStorage.getItem("logedCustomer")) || "";
+  let localCustomers = JSON.parse(localStorage.getItem("customers")) || [];
+
+  // Check if the customer already exists in the API data
   const existingCustomer = customersList.find(
     (customer) =>
       customer.username === data.username && customer.password === data.password
   );
 
-  if (!existingCustomer) {
-    alert(
-      "The username and password you've entered doesn't match any account. Please Try again"
-    );
-  } else {
-    let logedCustomer = JSON.parse(localStorage.getItem("logedCustomer")) || "";
+  // Check if the customer already exists in the local storage
+  const existingLocalCustomer = localCustomers.find(
+    (customer) =>
+      customer.username === data.username && customer.password === data.password
+  );
 
-    let verifiedCustomer = logedCustomer.username === existingCustomer.username;
+  //validate  customer
+  if (existingCustomer) {
+    let verifiedCustomer =
+      loggedCustomer.username === existingCustomer.username;
 
     if (verifiedCustomer) {
       document.querySelector(".user-name-label").textContent =
@@ -279,7 +289,36 @@ function customerLogin(data) {
       if (btnLogout) {
         btnLogout.classList.remove("d-none");
       }
+      resetForms();
     }
+  } else if (existingLocalCustomer) {
+    let verifiedCustomer =
+      loggedCustomer.username === existingLocalCustomer.username;
+
+    if (verifiedCustomer) {
+      document.querySelector(".user-name-label").textContent =
+        verifiedCustomer.name;
+
+      if (btnLogout) {
+        btnLogout.classList.remove("d-none");
+      }
+    } else {
+      localStorage.setItem(
+        "logedCustomer",
+        JSON.stringify(existingLocalCustomer)
+      );
+      document.querySelector(".user-name-label").textContent =
+        existingLocalCustomer.name;
+
+      if (btnLogout) {
+        btnLogout.classList.remove("d-none");
+      }
+      resetForms();
+    }
+  } else {
+    alert(
+      "The username and password you've entered doesn't match any account. Please Try again"
+    );
   }
 }
 
@@ -413,3 +452,7 @@ function resetFeedbaackMessages() {
     message.classList.remove("d-block");
   });
 }
+
+/**
+ * TODO: upon succesful login hide the forms and do the same on init in all pages
+ */
