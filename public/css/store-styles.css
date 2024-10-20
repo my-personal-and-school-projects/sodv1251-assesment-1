@@ -253,6 +253,17 @@ footer h3 {
   text-align: center;
 }
 
+.btn-submit {
+  border: 1.5px solid var(--white) !important;
+  color: var(--white) !important;
+  font-weight: bold !important;
+}
+
+.btn-submit:hover {
+  background-color: var(--white) !important;
+  color: var(--light-blue) !important;
+}
+
 /* ------------------ */
 /* Menu Page */
 /* ------------------ */
@@ -523,8 +534,44 @@ footer h3 {
   background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 }
 
-.registration-form h2 {
+.registration-form h2,
+.registration-form p {
   color: var(--white);
+}
+
+.goto-signin:hover {
+  color: var(--white);
+}
+
+.registration-form a {
+  color: var(--black);
+  font-weight: bold;
+}
+
+.signin-form-content {
+  border-radius: 8px;
+}
+
+.signup-alternatives ul {
+  list-style: none;
+}
+
+.signup-alternatives button {
+  color: var(--white);
+}
+
+.login-container a:hover {
+  color: var(--white) !important;
+}
+
+.btn-login {
+  color: var(--white) !important;
+  font-weight: bold !important;
+}
+
+.btn-login:hover {
+  background-color: var(--white) !important;
+  color: var(--mid-blue) !important;
 }
 
 .card-general-info,
@@ -548,7 +595,6 @@ footer h3 {
 
 .card-general-info input,
 .card-general-info select,
-.card-contact-info select,
-.card-contact-info input {
+.card-contact-info select {
   width: 75%;
 }

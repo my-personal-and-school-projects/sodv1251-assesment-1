@@ -2,7 +2,6 @@ import AbstractView from "./AbstractView.js";
 import { getData } from "../utils/api-utility.js";
 import customerDataRow from "../templates/customer-data.js";
 
-//Get the customers data
 const CUSTOMERS_ENDPOINT = "/api/customers";
 
 export default class extends AbstractView {
@@ -11,6 +10,7 @@ export default class extends AbstractView {
     this.setTitle("Customers");
   }
 
+//Get the customers data
   async getHtml() {
     this.customersList = await getData(CUSTOMERS_ENDPOINT);
 

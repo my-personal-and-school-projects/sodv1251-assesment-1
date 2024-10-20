@@ -1,5 +1,15 @@
 class Customer {
-  constructor(id, name, address, city, email, phone, status = "active") {
+  constructor(
+    id,
+    name,
+    address,
+    city,
+    email,
+    phone,
+    status = "active",
+    username,
+    password
+  ) {
     this.id = id;
     this.name = name;
     this.address = address;
@@ -7,6 +17,8 @@ class Customer {
     this.email = email;
     this.phone = phone;
     this.status = status;
+    this.username = username;
+    this.password = password;
     this.orders = [];
   }
 

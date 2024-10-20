@@ -8,7 +8,9 @@ const customers = [
     "Calgary",
     "john.doe@example.com",
     "403-555-0101",
-    "active"
+    "active",
+    "username1",
+    "password1"
   ),
   new Customer(
     2,
@@ -17,7 +19,9 @@ const customers = [
     "Airdrie",
     "jane.smith@example.com",
     "403-555-0202",
-    "active"
+    "active",
+    "username2",
+    "password2"
   ),
   new Customer(
     3,
@@ -26,7 +30,9 @@ const customers = [
     "Cochrane",
     "michael.johnson@example.com",
     "403-555-0303",
-    "active"
+    "active",
+    "username3",
+    "password3"
   ),
   new Customer(
     4,
@@ -35,7 +41,9 @@ const customers = [
     "Okotoks",
     "emily.davis@example.com",
     "403-555-0404",
-    "active"
+    "active",
+    "username4",
+    "password4"
   ),
   new Customer(
     5,
@@ -44,7 +52,9 @@ const customers = [
     "Chestermere",
     "chris.wilson@example.com",
     "403-555-0505",
-    "active"
+    "active",
+    "username5",
+    "password5"
   ),
   new Customer(
     6,
@@ -53,7 +63,9 @@ const customers = [
     "Calgary",
     "barack.obama@example.com",
     "312-555-0106",
-    "active"
+    "active",
+    "username6",
+    "password6"
   ),
   new Customer(
     7,
@@ -62,7 +74,9 @@ const customers = [
     "Fort SK",
     "hillary.clinton@example.com",
     "212-555-0107",
-    "inactive"
+    "inactive",
+    "username7",
+    "password7"
   ),
   new Customer(
     8,
@@ -71,7 +85,9 @@ const customers = [
     "Okotoks",
     "nelson.mandela@example.com",
     "011-555-0108",
-    "active"
+    "active",
+    "username8",
+    "password8"
   ),
   new Customer(
     9,
@@ -80,7 +96,9 @@ const customers = [
     "Red Deer",
     "angela.merkel@example.com",
     "030-555-0109",
-    "inactive"
+    "inactive",
+    "username9",
+    "password9"
   ),
   new Customer(
     10,
@@ -89,7 +107,9 @@ const customers = [
     "Edmonton",
     "winston.churchill@example.com",
     "020-555-0110",
-    "active"
+    "active",
+    "username10",
+    "password10"
   ),
 ];
 
