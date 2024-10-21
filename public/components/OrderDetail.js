@@ -10,6 +10,8 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Order Details");
+    this.generalOrdersList = [];
+    this.localOrdersDetailsList = [];
   }
 
   async getHtml() {
@@ -20,8 +22,23 @@ export default class extends AbstractView {
     this.ordersDetailsList = await getData(ORDER_DETAILS_ENDPOINT);
     this.promotionsList = await getData(PROMOTIONS_ENDPOINT);
 
+    this.localOrdersDetailsList =
+      JSON.parse(localStorage.getItem("orderDetails")) || [];
+
+    console.log(this.localOrdersDetailsList);
+
+    //add the order details in the system to the global array
+    this.ordersDetailsList.forEach((detail) => {
+      this.generalOrdersList.push(detail);
+    });
+
+    //Add the newly created order details to theglobal array, if any
+    this.localOrdersDetailsList.forEach((detail) => {
+      this.generalOrdersList.push(detail);
+    });
+
     if (
-      this.ordersDetailsList.length === 0 ||
+      this.generalOrdersList.length === 0 ||
       this.productsList.length === 0 ||
       this.promotionsList.lenght === 0
     ) {
@@ -30,7 +47,7 @@ export default class extends AbstractView {
 
     this.orders =
       this.id > 0
-        ? this.ordersDetailsList.filter((item) => item.orderId === this.id)
+        ? this.generalOrdersList.filter((item) => item.orderId === this.id)
         : "";
 
     this.orders.forEach((element) => {

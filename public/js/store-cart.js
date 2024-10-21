@@ -222,10 +222,11 @@ function createOrder() {
 
 function creatOrderDetail(orderId) {
   let shoppingCartItems = getOrderFromLocalStorage();
+  let orderDetailsList = [];
 
   shoppingCartItems.forEach((item) => {
     let newOrderDetail = {
-      id: (orderDetailsList.length += 1),
+      id: orderDetailsList.length + 1,
       orderId: orderId,
       productId: item.id,
       itemQty: item.qty,
@@ -236,8 +237,11 @@ function creatOrderDetail(orderId) {
         item.unitPrice * item.qty +
         item.unitPrice * item.qty * 0.05 -
         (item.discount || 0),
+      couponId: null,
     };
-
-    localStorage.setItem("orderDetails", JSON.stringify(newOrderDetail));
+    orderDetailsList.push(newOrderDetail);
   });
+
+  localStorage.setItem("orderDetails", JSON.stringify(orderDetailsList));
+  console.log(orderDetailsList);
 }
