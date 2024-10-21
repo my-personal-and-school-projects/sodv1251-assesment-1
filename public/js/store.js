@@ -255,10 +255,16 @@ function handleSigninForm(event) {
 
   //if is valid data log in
   if (isValidForm) {
-    customerLogin(loginData);
-    isLogged = true;
-    hideForms();
-    logOut();
+    let isSuccess = customerLogin(loginData);
+
+    if (isSuccess) {
+      isLogged = true;
+      resetForms();
+      hideForms();
+      logOut();
+    } else {
+      isLogged = false;
+    }
   }
 }
 
@@ -303,6 +309,7 @@ function customerLogin(data) {
         btnLogout.classList.remove("d-none");
       }
       resetForms();
+      return true;
     }
   } else if (existingLocalCustomer) {
     let verifiedCustomer =
@@ -327,11 +334,16 @@ function customerLogin(data) {
         btnLogout.classList.remove("d-none");
       }
       resetForms();
+      return true;
     }
   } else {
+    console.log(
+      "The username and password you've entered doesn't match any account. Please Try again"
+    );
     alert(
       "The username and password you've entered doesn't match any account. Please Try again"
     );
+    return false;
   }
 }
 
