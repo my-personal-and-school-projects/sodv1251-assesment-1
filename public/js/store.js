@@ -157,7 +157,7 @@ function registerNewCustomers(
 
   // If customer does not exist
   let newCustomer = {
-    id: customers.length + customersList.length + 1, // Unique ID combining both sources
+    id: customers.length + customersList.length + 1,
     name: name,
     address: address,
     city: city,
@@ -187,27 +187,28 @@ function handleRegistrationForm(event) {
   const formData = new FormData(event.target);
 
   const customerData = Object.fromEntries(formData.entries());
-  console.log("data", customerData);
+  console.log("customer data", customerData);
 
   const isValidForm = validateRegistrationForm(customerData);
   const isValidPhone = validatePhone(customerData.phone);
   console.log(isValidPhone);
 
   if (isValidForm) {
-    console.log(isValidForm);
+    console.log("is the form valid?", isValidForm);
     if (!isValidPhone) {
       document.querySelector("#invalid-phone").classList.add("d-block");
     } else if (isValidPhone) {
       document.querySelector("#invalid-phone").classList.remove("d-block");
 
-      const isSuccess =
-        (customerData.name,
+      const isSuccess = registerNewCustomers(
+        customerData.name,
         customerData.address,
         customerData.city,
         customerData.email,
         customerData.phone,
         customerData.username,
-        customerData.password);
+        customerData.password
+      );
 
       if (isSuccess) {
         alert(
