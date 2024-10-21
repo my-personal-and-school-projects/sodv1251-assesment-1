@@ -140,7 +140,9 @@
                   </li>
                 </ul>
               </div>
-              <div class="icon-buttons-container d-flex gap-3">
+              <div
+                class="icon-buttons-container d-flex gap-3 align-items-center"
+              >
                 <div class="shopping-cart">
                   <span class="cart-items">0</span>
                   <a href="/store-cart"
@@ -182,43 +184,61 @@
                 </p>
               </div>
               <div class="confirmation-content border py-4 px-3">
-                <div class="border-bottom border-secondary-subtle">
-                  <ul class="">
-                    <li class="list-group-item d-flex gap-5">
-                      <span>Order Number:</span>
-                      <span><strong>000454RT-0098</strong></span>
-                    </li>
-                    <li class="list-group-item d-flex gap-5 py-4">
-                      <span>Order Total:</span> <span><strong>$</strong></span>
-                    </li>
-                    <li class="list-group-item d-flex gap-5">
-                      <span>Delivered by:</span>
-                      <span><strong>Date</strong></span>
-                    </li>
-                    <li class="list-group-item pt-4 d-flex gap-5">
-                      <span>Deliver to:</span
-                      ><spans
-                        ><strong
-                          >John Doe <br />
-                          321-10235 123 ST NW <br />Edmonton, AB T5N1N3</strong
-                        ></spans
-                      >
-                    </li>
-                  </ul>
+                <div class="row">
+                  <div class="col-3">
+                    <ul class="d-flex flex-column gap-3">
+                      <li class="list-group-item">Order Number:</li>
+                      <li class="list-group-item">Order Total:</li>
+                      <li class="list-group-item">Deliver by:</li>
+                      <li class="list-group-item">Deliver to:</li>
+                      <li class="list-group-item">Address:</li>
+                      <li class="list-group-item">City:</li>
+                    </ul>
+                  </div>
+                  <div class="col-3">
+                    <ul class="d-flex flex-column gap-3">
+                      <li class="list-group-item">
+                        <strong><span id="order-number"></span></strong>
+                      </li>
+                      <li class="list-group-item">
+                        <strong>$<span id="order-total"></span></strong>
+                      </li>
+                      <li class="list-group-item">
+                        <strong><span id="order-date"></span></strong>
+                      </li>
+                      <li class="list-group-item">
+                        <strong><span id="customer-name"></span></strong>
+                      </li>
+                      <li class="list-group-item">
+                        <strong><span class="customer-address"></span></strong>
+                      </li>
+                      <li class="list-group-item">
+                        <strong><span class="customer-city"></span></strong>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="p-4">
-                  <p class="d-flex gap-5">
-                    <span>Payment Method: </span
-                    ><span><strong>Visa</strong></span>
-                  </p>
-                  <p class="pt-4 d-flex gap-5">
-                    <span>Billing Address:</span>
-                    <span
-                      ><strong
-                        >321-10235 123 ST NW <br />Edmonton, AB T5N1N3</strong
-                      ></span
-                    >
-                  </p>
+                <div class="row border-top border-secondary-subttle">
+                  <div class="col-3">
+                    <ul class="d-flex flex-column gap-3">
+                      <li class="list-group-item">Payment Method:</li>
+                      <li class="list-group-item">Billing Address:</li>
+                      <li class="list-group-item">City:</li>
+                    </ul>
+                  </div>
+                  <div class="col-3">
+                    <ul class="d-flex flex-column gap-3">
+                      <li class="list-group-item">
+                        <strong><span id="payment-method">visa</span></strong>
+                      </li>
+                      <li class="list-group-item">
+                        <strong><span class="customer-address"></span></strong>
+                      </li>
+                      <li class="list-group-item">
+                        <strong><span class="customer-city"></span></strong>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

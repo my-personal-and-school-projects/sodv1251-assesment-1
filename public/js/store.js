@@ -343,7 +343,11 @@ function logOut() {
 
     localStorage.removeItem("logedCustomer");
     document.querySelector(".user-name-label").textContent = "";
-    formsContainer.classList.remove("d-none");
+
+    if (formsContainer) {
+      formsContainer.classList.remove("d-none");
+    }
+
     btnLogout.classList.add("d-none");
   });
 }

@@ -11,33 +11,54 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Orders");
+    this.updatedOrdersList = [];
+    this.updatedCustomersList = [];
   }
   async getHtml() {
     // this.productsList = await getData(PRODUCTS_ENDPOINT);
     this.customersList = await getData(CUSTOMERS_ENDPOINT);
     this.ordersList = await getData(ORDERS_ENDPOINT);
-    //this.orderDetailsList = await getData(ORDER_DETAILS_ENDPOINT);
 
-    /*  if (
-      this.productsList.length === 0 ||
-      this.customersList.length === 0 ||
-      this.ordersList.length === 0 ||
-      this.orderDetailsList.length === 0
-    ) {
-      return `<div>No orders found</div>`;
-    } */
+    //get the current orders from the localStorage
+    this.localOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    //get any new customers
+    this.newCustomers = JSON.parse(localStorage.getItem("customers")) || [];
 
     if (this.customersList.length === 0 || this.ordersList.length === 0) {
       return `<div>No orders found</div>`;
     }
+    this.customersList.forEach((customer) => {
+      this.updatedCustomersList.push(customer);
+    });
 
-    const rows = this.ordersList
+    if (this.newCustomers.length > 0) {
+      this.newCustomers.forEach((customer) => {
+        this.updatedCustomersList.push(customer);
+      });
+    }
+
+    this.ordersList.forEach((order) => {
+      this.updatedOrdersList.push(order);
+    });
+
+    if (this.localOrders.length > 0) {
+      this.localOrders.forEach((order) => {
+        this.updatedOrdersList.push(order);
+      });
+    }
+
+    console.log(this.updatedCustomersList);
+
+    console.log(this.updatedOrdersList);
+
+    const rows = this.updatedOrdersList
       .map((order) => {
-        const matchingCustomer = this.customersList.find(
-          (customer) => customer.id === order.customerId
+        const matchingCustomer = this.updatedCustomersList.find(
+          (customer) => parseInt(customer.id) === parseInt(order.customerId)
         );
+        console.log(order);
 
-        return ordersDataRow(order, matchingCustomer);
+        return ordersDataRow(order, matchingCustomer.name);
       })
       .join("");
 

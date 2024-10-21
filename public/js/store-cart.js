@@ -147,7 +147,7 @@ function gotoConfirmation() {
       localStorage.removeItem("shoppingCartItems");
       localStorage.removeItem("quantities");
 
-      window.location.href = "store-order-confirmation";
+      window.location.href = `store-order-confirmation?id=${orderId}`;
     });
   }
 }
@@ -189,6 +189,8 @@ function createOrder() {
   //get and format current date from system
   let currentDate = new Date().toJSON().slice(0, 10);
 
+  let localOrders = [];
+
   if (orders.length > 0) {
     orders.forEach((order) => {
       currentOrdersList.push(order);
@@ -203,24 +205,22 @@ function createOrder() {
 
   newOrder = {
     id: (currentOrdersList.length += 1),
-    customerid: currentCustomer.id,
+    customerId: currentCustomer.id,
     date: currentDate,
     totalPrice: 0,
     paymentStatus: "pending",
     orderStatus: "in process",
   };
 
-  currentOrdersList.push(newOrder);
+  localOrders.push(newOrder);
 
   //store the new order in the local storage
-  localStorage.setItem("orders", JSON.stringify(newOrder));
+  localStorage.setItem("orders", JSON.stringify(localOrders));
 
   return newOrder.id;
 }
 
 function creatOrderDetail(orderId) {
-  let orderItemsList = [];
-
   let shoppingCartItems = getOrderFromLocalStorage();
 
   shoppingCartItems.forEach((item) => {

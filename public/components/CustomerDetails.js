@@ -75,3 +75,8 @@ export default class extends AbstractView {
     `;
   }
 }
+
+/**
+ * TODO: need to get the recently created orderdetails
+ *  from the local storage to map them
+ */

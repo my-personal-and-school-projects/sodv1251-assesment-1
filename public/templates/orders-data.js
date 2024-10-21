@@ -1,4 +1,4 @@
-const ordersDataRow = (order, customer) => `
+const ordersDataRow = (order, name) => `
 <tr>
      <td class="px-0">
         <div class="d-flex justify-content-center gap-3">       
@@ -14,7 +14,7 @@ const ordersDataRow = (order, customer) => `
         </div>
     </td>
     <td>${order.id}</td>
-    <td>${customer.name}</td>
+    <td>${name}</td>
     <td>${order.date}</td>    
     <td>$${order.totalPrice}</td>    
     <td>${order.paymentStatus}</td>    
