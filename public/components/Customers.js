@@ -8,16 +8,32 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Customers");
+    this.allCustomers = [];
   }
 
-//Get the customers data
+  //Get the customers data
   async getHtml() {
+    //get already registered customers
     this.customersList = await getData(CUSTOMERS_ENDPOINT);
+
+    //get any new customers
+    this.newCustomers = JSON.parse(localStorage.getItem("customers")) || [];
 
     if (this.customersList.length === 0) {
       return `<div>No customers found</div>`;
     }
-    const rows = this.customersList
+
+    this.customersList.forEach((customer) => {
+      this.allCustomers.push(customer);
+    });
+
+    if (this.newCustomers.length > 0) {
+      this.newCustomers.forEach((customer) => {
+        this.allCustomers.push(customer);
+      });
+    }
+
+    const rows = this.allCustomers
       .map((customer) => customerDataRow(customer))
       .join("");
 

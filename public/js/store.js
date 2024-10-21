@@ -16,6 +16,8 @@ const toggleFormSignIn = document.querySelector("#goto-signin");
 const toggleFormRegister = document.querySelector("#goto-register");
 const registrationForm = document.querySelector("#customer-registration-form");
 const signinForm = document.querySelector("#customer-signin-form");
+const formsContainer = document.querySelector("#registration");
+
 const registrationFormInputs = document.querySelectorAll(
   "#customer-registration-form input"
 );
@@ -26,6 +28,8 @@ const loginFormInputs = document.querySelectorAll(
 const invalidFeedbackMessages = document.querySelectorAll(".invalid-feedback");
 
 const btnLogout = document.querySelector(".btn-logout");
+
+let isLogged = false;
 
 (function onInit() {
   const loggedCustomer =
@@ -38,6 +42,9 @@ const btnLogout = document.querySelector(".btn-logout");
     if (btnLogout) {
       btnLogout.classList.remove("d-none");
     }
+    isLogged = true;
+    hideForms();
+    logOut();
   }
 
   if (toggleFormSignIn) {
@@ -193,15 +200,14 @@ function handleRegistrationForm(event) {
     } else if (isValidPhone) {
       document.querySelector("#invalid-phone").classList.remove("d-block");
 
-      const isSuccess = registerNewCustomers(
-        customerData.name,
+      const isSuccess =
+        (customerData.name,
         customerData.address,
         customerData.city,
         customerData.email,
         customerData.phone,
         customerData.username,
-        customerData.password
-      );
+        customerData.password);
 
       if (isSuccess) {
         alert(
@@ -239,13 +245,19 @@ function handleSigninForm(event) {
 
   const formData = new FormData(event.target);
 
+  //get data from the form
   const loginData = Object.fromEntries(formData.entries());
   console.log("data", loginData);
 
+  //Validate data
   const isValidForm = validateLoginForm(loginData);
 
+  //if is valid data log in
   if (isValidForm) {
     customerLogin(loginData);
+    isLogged = true;
+    hideForms();
+    logOut();
   }
 }
 
@@ -322,6 +334,23 @@ function customerLogin(data) {
   }
 }
 
+/**
+ * if user logs out, show the forms
+ */
+function logOut() {
+  btnLogout.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    localStorage.removeItem("logedCustomer");
+    document.querySelector(".user-name-label").textContent = "";
+    formsContainer.classList.remove("d-none");
+    btnLogout.classList.add("d-none");
+  });
+}
+
+/**
+ * Add event listeners to all inputs to handle feedback messages
+ */
 loginFormInputs.forEach((input) => {
   input.addEventListener("input", (event) => {
     const inputId = input.id;
@@ -398,6 +427,11 @@ function validateRegistrationForm(data) {
   return Boolean(isValid);
 }
 
+/**
+ * validate the login form data
+ * @param {*} data
+ * @returns
+ */
 function validateLoginForm(data) {
   let isValid = true;
 
@@ -424,6 +458,11 @@ function validateField(value, elementId) {
   }
 }
 
+/**
+ * Validate phone number format
+ * @param {*} phone
+ * @returns
+ */
 function validatePhone(phone) {
   const regex = /^\d{3}-\d{3}-\d{4}$/;
   return regex.test(phone);
@@ -453,6 +492,11 @@ function resetFeedbaackMessages() {
   });
 }
 
-/**
- * TODO: upon succesful login hide the forms and do the same on init in all pages
- */
+//if user is logged in, hide the forms
+function hideForms() {
+  if (isLogged) {
+    if (formsContainer) {
+      formsContainer.classList.add("d-none");
+    }
+  }
+}

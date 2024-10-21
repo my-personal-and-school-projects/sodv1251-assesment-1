@@ -8,6 +8,11 @@
     <!-- Scripts -->
     <script type="module" src="/static/js/index.js" defer></script>
     <script type="module" src="/static/js/store.js" defer></script>
+    <script
+      type="module"
+      src="/static/js/store-order-confirmation.js"
+      defer
+    ></script>
 
     <!-- Stylesheets -->
     <link
@@ -145,8 +150,10 @@
                     ></i
                   ></a>
                 </div>
-                <div class="user-button">
+                <div class="user-button d-flex gap-3 align-items-center">
                   <button><i class="fa fa-user" aria-hidden="true"></i></button>
+                  <span class="user-name-label fw-bold"></span>
+                  <button class="d-none btn btn-logout">Log out</button>
                 </div>
               </div>
             </div>
@@ -167,7 +174,11 @@
                 <h2 class="py-3">Thank you for your order!!</h2>
                 <p class="pb-2">
                   An email confirmation has been sent to
-                  <strong>john.doe@orders.ca</strong>
+                  <strong
+                    ><span id="confirmation-email"
+                      >john.doe@orders.ca</span
+                    ></strong
+                  >
                 </p>
               </div>
               <div class="confirmation-content border py-4 px-3">

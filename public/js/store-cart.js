@@ -1,13 +1,22 @@
 import { shoppingCartCard } from "../templates/shopping-cart-data.js";
+import { getData } from "../utils/api-utility.js";
 
 const cartItemsContainer = document.querySelector(".cart-item-card-container");
 const cartSubtotal = document.querySelector(".cart-subtotal");
 const cartGST = document.querySelector(".cart-gst");
 const cartTotal = document.querySelector(".cart-total");
 
+const ORDERS_ENDPOINT = "/api/orders";
+const ORDER_DETAILS_ENDPOINT = "/api/orders-details";
+
 let parsedItems = [];
 let subtotal = 0;
 let itemQty = 0;
+let currentOrdersList = [];
+let newOrder = "";
+
+let ordersList = await getData(ORDERS_ENDPOINT);
+let orderDetailsList = await getData(ORDER_DETAILS_ENDPOINT);
 
 if (cartItemsContainer) {
   /**
@@ -130,6 +139,8 @@ function gotoConfirmation() {
   } else {
     btnPlaceOrder.addEventListener("click", (event) => {
       event.preventDefault();
+      let orderId = createOrder();
+      creatOrderDetail(orderId);
 
       //Reset the cart
       parsedItems = [];
@@ -169,8 +180,64 @@ function removeItems(itemId) {
   }
 }
 
-/* TODO: pass the order total and customer name to the confirmation
- * will need to get the customer infor from the API and/or Most likely
- * will have to finish implementing the CRUD ops on the management
- * system, or maybe that is separate from the front store logic
- */
+function createOrder() {
+  //get the orders from the localStorage if any
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  //Get the current user if logged in
+  let currentCustomer = JSON.parse(localStorage.getItem("logedCustomer")) || "";
+
+  //get and format current date from system
+  let currentDate = new Date().toJSON().slice(0, 10);
+
+  if (orders.length > 0) {
+    orders.forEach((order) => {
+      currentOrdersList.push(order);
+    });
+  }
+
+  if (ordersList.length > 0) {
+    ordersList.forEach((order) => {
+      currentOrdersList.push(order);
+    });
+  }
+
+  newOrder = {
+    id: (currentOrdersList.length += 1),
+    customerid: currentCustomer.id,
+    date: currentDate,
+    totalPrice: 0,
+    paymentStatus: "pending",
+    orderStatus: "in process",
+  };
+
+  currentOrdersList.push(newOrder);
+
+  //store the new order in the local storage
+  localStorage.setItem("orders", JSON.stringify(newOrder));
+
+  return newOrder.id;
+}
+
+function creatOrderDetail(orderId) {
+  let orderItemsList = [];
+
+  let shoppingCartItems = getOrderFromLocalStorage();
+
+  shoppingCartItems.forEach((item) => {
+    let newOrderDetail = {
+      id: (orderDetailsList.length += 1),
+      orderId: orderId,
+      productId: item.id,
+      itemQty: item.qty,
+      unitPrice: item.unitPrice,
+      discount: item.discount || 0,
+      tax: item.unitPrice * item.qty * 0.05,
+      totalPrice:
+        item.unitPrice * item.qty +
+        item.unitPrice * item.qty * 0.05 -
+        (item.discount || 0),
+    };
+
+    localStorage.setItem("orderDetails", JSON.stringify(newOrderDetail));
+  });
+}
