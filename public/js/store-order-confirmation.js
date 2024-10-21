@@ -39,6 +39,16 @@ function displayOrderDetails() {
   });
 }
 
+function calculateOrderTotal() {
+  let orderTotal = 0
+
+  orderDetailsList.forEach((detail) => {
+    orderTotal += detail.
+    
+  })
+  //
+}
+
 /**
  * TODO: need to calculate order details total and pass it the order and display it
  */

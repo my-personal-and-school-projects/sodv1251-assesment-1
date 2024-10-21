@@ -12,6 +12,7 @@ const ORDER_DETAILS_ENDPOINT = "/api/orders-details";
 let parsedItems = [];
 let subtotal = 0;
 let itemQty = 0;
+let grandTotal = 0;
 let currentOrdersList = [];
 let newOrder = "";
 
@@ -56,7 +57,6 @@ if (cartItemsContainer) {
   function updateSubtotal() {
     let subtotal = 0;
     let gst = 0;
-    let grandTotal = 0;
 
     parsedItems.forEach((item, index) => {
       const inputQty = document.querySelectorAll(".input-qty")[index];
@@ -207,7 +207,7 @@ function createOrder() {
     id: (currentOrdersList.length += 1),
     customerId: currentCustomer.id,
     date: currentDate,
-    totalPrice: 0,
+    totalPrice: grandTotal,
     paymentStatus: "pending",
     orderStatus: "in process",
   };
