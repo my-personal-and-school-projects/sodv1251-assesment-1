@@ -42,7 +42,7 @@ const productCrudForm = (product) => `
                 <div class="radio-buttons-group form-group row-cols-2 d-flex align-items-center py-2">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="discontinued" value="option1" ${
-                          product.isDiscontinued === false ? "checked" : ""
+                          product.isDiscontinued === true ? "checked" : ""
                         }>
                         <label class="form-check-label" for="discontinued">
                             Discontinued
@@ -80,3 +80,7 @@ const productCrudForm = (product) => `
 `;
 
 export default productCrudForm;
+
+/**
+ * TODO:disblae uncecessary components and ad CRUD logic
+ */

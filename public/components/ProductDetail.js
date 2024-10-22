@@ -25,36 +25,53 @@ export default class extends AbstractView {
 
     return `
     <div>
-      <h2>Product No. <span>${this.product.id}</span></h2>
-      
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <ul class="item-details">
-          <li><strong>Brand:\t</strong><span>${this.product.name}</span></li>
-          <li><strong>Description:</strong><span>${
-            this.product.description
-          }</span></li>
-          <li><strong>Category: </strong><span>${
-            this.product.category
-          }</span></li>
-          <li><strong>Price per unit:</strong> $<span>${
-            this.product.unitPrice
-          }</span></li>
-          <li><strong>Vendor:</strong> $<strong></strong><span>${
-            this.product.vendorId
-          }</span></li>
-          <li><strong>Qty in stock: </strong><span>Un madral</span></li>
+      <h2><span>${this.product.name}</span></h2>
 
-          <li>${
-            this.product.IsDiscontinued ? "Discontinued" : "Not Discontinued"
-          }</li>
+      <div class="container border py-5">
+        <div class="row">
+      <div class="col-3">
+        <ul class="item-details d-flex flex-column gap-3">
+          <li class="list-group-item">Brand:</li>
+          <li class="list-group-item">Description:</li>
+          <li class="list-group-item">Category:</li>
+          <li class="list-group-item">Price per unit:</li>
+          <li class="list-group-item">Vendor:</li>
+          <li class="list-group-item">Status:</li>
         </ul>
       </div>
-      <div class="col-6">
+      <div class="col-4">
+        <ul class="item-details ps-0 d-flex flex-column gap-3">
+          <li class="list-group-item">
+             <strong><span">${this.product.name}</span></strong>
+          </li>
+          <li class="list-group-item">
+          <strong><span>${this.product.description}</span></strong>
+          </li>
+          <li class="list-group-item">
+          <strong><span>${this.product.category}</span></strong>
+          </li>
+          <li class="list-group-item">
+          <strong>$<span>${this.product.unitPrice}</span></strong>
+          </li>
+          <li class="list-group-item">
+          <strong><span>${this.product.vendorId}</span></strong>
+          </li>
+          <li class="list-group-item">
+          <strong><span>${
+            this.product.IsDiscontinued ? "Discontinued" : "Not Discontinued"
+          }</span></strong>
+          </li>
+        
+        </ul>
+      </div>
+      <div class="col-4">
         <img src="${this.product.img_url}" alt="product-image">
       </div>
     </div>
+      </div>
+      
+    </div>
+    
    
     `;
   }
