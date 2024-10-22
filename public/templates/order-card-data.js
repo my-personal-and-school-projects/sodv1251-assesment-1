@@ -2,7 +2,7 @@ export const productOrderCard = (product) => `
 <div class="col-6 food-order-card h-auto p-0 border border-secondary-subtle">
     <div class="p-0">
         <div class="order-card-image-container">
-            <img src="${product.img_url}" alt="food image" />
+            <img src="${product.img_url}" alt="product image" />
         </div>
         <div class="w-80 m-auto d-flex justify-content-center gap-3 py-4">
             <input

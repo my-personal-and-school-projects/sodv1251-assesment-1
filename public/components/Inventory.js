@@ -26,13 +26,28 @@ export default class extends AbstractView {
       a.name.localeCompare(b.name)
     );
 
+    this.orderDetailsList =
+      JSON.parse(localStorage.getItem("orderDetails")) || [];
+
+    console.log("orders in localStorage: ", this.orderDetailsList);
+
+    //update stock quantities
+    this.orderDetailsList.forEach((detail) => {
+      this.productToUpdate = this.inventoryList.find(
+        (product) => product.id === detail.productId
+      );
+      if (this.productToUpdate) {
+        this.productToUpdate.quantityInStock -= parseInt(detail.itemQty);
+      }
+      console.log(this.productToUpdate.quantityInStock);
+    });
+
     rows = this.inventoryList.map((inventoryItem) => {
       const matchingProduct = sortedInventory.find(
         (product) => product.id === inventoryItem.productId
       );
       return inventoryDataRow(inventoryItem, matchingProduct);
     });
-
     return `
     <div>
         <h2 class="pb-3">Inventory</h2>
@@ -62,5 +77,21 @@ export default class extends AbstractView {
     </div>
     </div>
     `;
+  }
+
+  deductOrderedProductsFromInventory() {
+    //get ordered products from the localStorage
+    this.orderDetailsList =
+      JSON.parse(localStorage.getItem("orderDetails")) || [];
+
+    this.orderDetailsList.forEach((detail) => {
+      this.productToUpdate = this.inventoryList.find(
+        (product) => product.id === detail.id
+      );
+      if (this.productToUpdate) {
+        this.productToUpdate.quantityInStock -= detail.qty;
+      }
+      console.log(this.productToUpdate.quantityInStock);
+    });
   }
 }
