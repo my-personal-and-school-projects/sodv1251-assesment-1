@@ -11,6 +11,8 @@ export default class extends AbstractView {
     super(params);
     this.setTitle("Customer Details");
     this.customer = "";
+    this.allCustomers = [];
+    this.allOrders = [];
   }
 
   async getHtml() {
@@ -20,12 +22,30 @@ export default class extends AbstractView {
     this.customersList = await getData(CUSTOMERS_ENDPOINT);
     this.ordersList = await getData(ORDERS_ENDPOINT);
 
-    if (this.customersList.length === 0 || this.ordersList.length === 0) {
+    //Get new customers from the localStorage
+    this.localCustomersList =
+      JSON.parse(localStorage.getItem("customers")) || [];
+
+    //get new orders from he localStorage
+    this.localOrdersList = JSON.parse(localStorage.getItem("orders")) || [];
+
+    //Consolidate customer lists
+    this.customersList.forEach((customer) => {
+      this.allCustomers.push(customer);
+    });
+
+    this.localCustomersList.forEach((customer) => {
+      this.allCustomers.push(customer);
+    });
+
+    //consolidate orders Lists
+
+    if (this.allCustomers.length === 0 || this.ordersList.length === 0) {
       return `<div>No orders found</div>`;
     }
 
     this.customer =
-      this.id > 0 ? this.customersList.find((item) => item.id === this.id) : "";
+      this.id > 0 ? this.allCustomers.find((item) => item.id === this.id) : "";
 
     const orders = this.ordersList.filter(
       (order) => order.customerId === this.customer.id

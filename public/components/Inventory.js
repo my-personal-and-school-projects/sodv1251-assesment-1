@@ -26,6 +26,7 @@ export default class extends AbstractView {
       a.name.localeCompare(b.name)
     );
 
+    //get current orders information from the local storage
     this.orderDetailsList =
       JSON.parse(localStorage.getItem("orderDetails")) || [];
 
