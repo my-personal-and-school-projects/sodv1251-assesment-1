@@ -25,8 +25,6 @@ export default class extends AbstractView {
     this.localOrdersDetailsList =
       JSON.parse(localStorage.getItem("orderDetails")) || [];
 
-    console.log(this.localOrdersDetailsList);
-
     //add the order details in the system to the global array
     this.ordersDetailsList.forEach((detail) => {
       this.generalOrdersList.push(detail);
@@ -49,10 +47,6 @@ export default class extends AbstractView {
       this.id > 0
         ? this.generalOrdersList.filter((item) => item.orderId === this.id)
         : "";
-
-    this.orders.forEach((element) => {
-      console.log(element);
-    });
 
     const rows = this.orders
       .map((orderDetail) => {

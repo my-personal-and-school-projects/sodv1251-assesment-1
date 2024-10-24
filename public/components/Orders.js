@@ -47,16 +47,11 @@ export default class extends AbstractView {
       });
     }
 
-    console.log(this.updatedCustomersList);
-
-    console.log(this.updatedOrdersList);
-
     const rows = this.updatedOrdersList
       .map((order) => {
         const matchingCustomer = this.updatedCustomersList.find(
           (customer) => parseInt(customer.id) === parseInt(order.customerId)
         );
-        console.log(order);
 
         return ordersDataRow(order, matchingCustomer.name);
       })

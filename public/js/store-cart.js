@@ -60,7 +60,7 @@ if (cartItemsContainer) {
 
     parsedItems.forEach((item, index) => {
       const inputQty = document.querySelectorAll(".input-qty")[index];
-      const itemQty = parseInt(inputQty.value) || item.qty; // Use original qty if input is invalid
+      itemQty = parseInt(inputQty.value) || item.qty; // Use original qty if input is invalid
       const itemTotal = parseFloat(item.unitPrice) * itemQty;
 
       subtotal += itemTotal;

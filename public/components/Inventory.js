@@ -30,8 +30,6 @@ export default class extends AbstractView {
     this.orderDetailsList =
       JSON.parse(localStorage.getItem("orderDetails")) || [];
 
-    console.log("orders in localStorage: ", this.orderDetailsList);
-
     //update stock quantities
     this.orderDetailsList.forEach((detail) => {
       this.productToUpdate = this.inventoryList.find(
@@ -40,7 +38,6 @@ export default class extends AbstractView {
       if (this.productToUpdate) {
         this.productToUpdate.quantityInStock -= parseInt(detail.itemQty);
       }
-      console.log(this.productToUpdate.quantityInStock);
     });
 
     rows = this.inventoryList.map((inventoryItem) => {
